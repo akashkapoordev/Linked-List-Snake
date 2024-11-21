@@ -29,6 +29,7 @@ namespace Player
 
 	void PlayerService::spwanPlayer()
 	{
+		snake_controller->spwanSnake();
 	}
 
 	void PlayerService::createController()

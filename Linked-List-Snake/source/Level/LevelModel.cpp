@@ -11,17 +11,23 @@ namespace Level
 	{
 	}
 
-	void Level::LevelModel::initialize()
+	void LevelModel::initialize(float width, float height)
 	{
+		cell_width = width / number_of_columns;
+		cell_height = height / number_of_rows;
 	}
 
-	void Level::LevelModel::update()
+	float LevelModel::getWidth()
 	{
+		return cell_width;
 	}
 
-	void Level::LevelModel::render()
+	float LevelModel::getHeight()
 	{
+		return cell_height;
 	}
+
+
 }
 
 

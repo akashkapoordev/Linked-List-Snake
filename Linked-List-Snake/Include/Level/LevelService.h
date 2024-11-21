@@ -10,6 +10,8 @@ namespace Level
 		void initialize();
 		void update();
 		void render();
+
+		void createLevel(LevelNumber number);
 	private:
 		LevelController* levelController;
 	};

@@ -1,13 +1,8 @@
 #pragma once
 namespace Level
 {
-	class LevelData
+	struct LevelData
 	{
-	public:
-		LevelData();
-		~LevelData();
-
-	private:
 
 	};
 

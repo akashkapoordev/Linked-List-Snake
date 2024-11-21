@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\UI\LevelSelection\LevelSelectionUIController .cpp" />
     <ClCompile Include="source\Level\LevelView.cpp" />
     <ClCompile Include="source\Level\LevelService.cpp" />
     <ClCompile Include="source\Level\LevelModel.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Include\Time\TimeService.h" />
     <ClInclude Include="Include\UI\Credits\CreditsScreenUIController.h" />
     <ClInclude Include="Include\UI\Instructions\InstructionsScreenUIController.h" />
+    <ClInclude Include="Include\UI\LevelSelection\LevelSelectionUIController .h" />
     <ClInclude Include="Include\UI\UIElement\AnimatedImageView.h" />
     <ClInclude Include="Include\UI\UIElement\ButtonView.h" />
     <ClInclude Include="Include\Global\Config.h" />

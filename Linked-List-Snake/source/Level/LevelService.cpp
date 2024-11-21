@@ -27,4 +27,8 @@ namespace Level
 	{
 		levelController->render();
 	}
+	void LevelService::createLevel(LevelNumber number)
+	{
+		levelController->createLevel(number);
+	}
 }

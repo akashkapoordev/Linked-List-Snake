@@ -42,6 +42,7 @@ namespace Player
 	{
 		current_snakestate = state;
 	}
+
 	void SnakeController::processPlayerInput()
 	{
 	}

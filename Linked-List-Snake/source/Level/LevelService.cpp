@@ -1,8 +1,10 @@
 #include "Level/LevelService.h"
-
+#include "Global/ServiceLocator.h"
 
 namespace Level
 {
+	using namespace Global;
+
 	LevelService::LevelService()
 	{
 		levelController = new LevelController();
@@ -30,5 +32,6 @@ namespace Level
 	void LevelService::createLevel(LevelNumber number)
 	{
 		levelController->createLevel(number);
+		ServiceLocator::getInstance()->getPlayerService()->spwanPlayer();
 	}
 }

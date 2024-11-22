@@ -10,12 +10,18 @@ namespace Player
 		BodyPart();
 		~BodyPart();
 
+		void initialize(float width, float height, Direction dir, sf::Vector2i pos);
+		void render();
 	private:
 		UI::UIElement::ImageView* body_part_image;
 		Direction direction;
 		sf::Vector2i grid_position;
 		float body_part_width;
 		float body_part_height;
+
+		void createBodyPartImage();
+		void initializeBodyImage();
+
 	};
 
 }

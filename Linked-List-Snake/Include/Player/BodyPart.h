@@ -14,6 +14,12 @@ namespace Player
 		void update();
 		void render();
 		void setDirection(Direction dir);
+		sf::Vector2i getNextPosition();
+		void setPosition(sf::Vector2i pos);
+
+
+		Direction getDirection();
+		sf::Vector2i getgridPosition();
 	private:
 		UI::UIElement::ImageView* body_part_image;
 		Direction direction;
@@ -25,6 +31,11 @@ namespace Player
 		void initializeBodyImage();
 		sf::Vector2f getBodyPartScreenPositon();
 		float getRotationAngle();
+		sf::Vector2i getNextPositionUp();
+		sf::Vector2i getNextPositionDown();
+		sf::Vector2i getNextPositionLeft();
+		sf::Vector2i getNextPositionRight();
+
 
 	};
 

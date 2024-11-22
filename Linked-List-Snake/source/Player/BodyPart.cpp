@@ -69,5 +69,47 @@ namespace Player
 			return 0;
 		}
 	}
+	sf::Vector2i BodyPart::getNextPositionUp()
+	{
+		return sf::Vector2i(grid_position.x,grid_position.y - 1);
+	}
+	sf::Vector2i BodyPart::getNextPositionDown()
+	{
+		return sf::Vector2i(grid_position.x,grid_position.y + 1);
+	}
+	sf::Vector2i BodyPart::getNextPositionLeft()
+	{
+		return sf::Vector2i(grid_position.x - 1,grid_position.y);
+	}
+	sf::Vector2i BodyPart::getNextPositionRight()
+	{
+		return sf::Vector2i(grid_position.x+1,grid_position.y);
+	}
+    sf::Vector2i BodyPart::getNextPosition()
+    {
+		switch (direction)
+		{
+		case Player::Direction::UP:
+			return getNextPositionUp();
+		case Player::Direction::DOWN:
+			return getNextPositionDown();
+		case Player::Direction::LEFT:
+			return getNextPositionLeft();
+		case Player::Direction::RIGHT:
+			return getNextPositionRight();
+		}
+    }
+	void BodyPart::setPosition(sf::Vector2i pos)
+	{
+		grid_position = pos;
+	}
+	Direction BodyPart::getDirection()
+	{
+		return direction;
+	}
+	sf::Vector2i BodyPart::getgridPosition()
+	{
+		return grid_position;
+	}
 }
 

@@ -1,11 +1,13 @@
 #include "Player/BodyPart.h"
 #include "Global/ServiceLocator.h";
 #include "Global/Config.h";
+#include "Level/LevelView.h"
 
 namespace Player
 {
 	using namespace UI::UIElement;
 	using namespace Global;
+	using namespace Level;
 
 	BodyPart::BodyPart()
 	{
@@ -24,9 +26,19 @@ namespace Player
 		grid_position = pos;
 		initializeBodyImage();
 	}
+	void BodyPart::update()
+	{
+		body_part_image->setPosition(getBodyPartScreenPositon());
+		body_part_image->setRotation(getRotationAngle());
+		body_part_image->update();
+	}
 	void BodyPart::render()
 	{
 		body_part_image->render();
+	}
+	void BodyPart::setDirection(Direction dir)
+	{
+		direction = dir;
 	}
 	void BodyPart::createBodyPartImage()
 	{
@@ -34,8 +46,28 @@ namespace Player
 	}
 	void BodyPart::initializeBodyImage()
 	{
-		body_part_image->initialize(Config::snake_body_texture_path, body_part_width, body_part_height, sf::Vector2f(0, 0));
+		body_part_image->initialize(Config::snake_body_texture_path, body_part_width, body_part_height, getBodyPartScreenPositon());
 		body_part_image->setOriginAtCentre();
+	}
+	sf::Vector2f BodyPart::getBodyPartScreenPositon()
+	{
+		float x_screen_position = LevelView::border_offset_left + (grid_position.x * body_part_width) + (body_part_width / 2);
+		float y_screen_position = LevelView::border_offset_top + (grid_position.y * body_part_height) + (body_part_height / 2);
+		return sf::Vector2f(x_screen_position, y_screen_position);
+	}
+	float BodyPart::getRotationAngle()
+	{
+		switch (direction)
+		{
+		case Player::Direction::UP:
+			return 270.0;
+		case Player::Direction::DOWN:
+			return 90.0;
+		case Player::Direction::LEFT:
+			return 180.0;
+		case Player::Direction::RIGHT:
+			return 0;
+		}
 	}
 }
 

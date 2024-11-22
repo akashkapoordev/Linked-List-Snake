@@ -11,7 +11,9 @@ namespace Player
 		~BodyPart();
 
 		void initialize(float width, float height, Direction dir, sf::Vector2i pos);
+		void update();
 		void render();
+		void setDirection(Direction dir);
 	private:
 		UI::UIElement::ImageView* body_part_image;
 		Direction direction;
@@ -21,6 +23,8 @@ namespace Player
 
 		void createBodyPartImage();
 		void initializeBodyImage();
+		sf::Vector2f getBodyPartScreenPositon();
+		float getRotationAngle();
 
 	};
 

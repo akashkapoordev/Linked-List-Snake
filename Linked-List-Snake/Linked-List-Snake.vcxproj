@@ -133,6 +133,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Player\SnakeController.cpp" />
+    <ClCompile Include="source\Player\PlayerService.cpp" />
     <ClCompile Include="source\UI\LevelSelection\LevelSelectionUIController .cpp" />
     <ClCompile Include="source\Level\LevelView.cpp" />
     <ClCompile Include="source\Level\LevelService.cpp" />
@@ -165,6 +167,8 @@
     <ClInclude Include="Include\Level\LevelNumber.h" />
     <ClInclude Include="Include\Level\LevelService.h" />
     <ClInclude Include="Include\Level\LevelView.h" />
+    <ClInclude Include="Include\Player\PlayerService.h" />
+    <ClInclude Include="Include\Player\SnakeController.h" />
     <ClInclude Include="Include\Time\TimeService.h" />
     <ClInclude Include="Include\UI\Credits\CreditsScreenUIController.h" />
     <ClInclude Include="Include\UI\Instructions\InstructionsScreenUIController.h" />
@@ -185,6 +189,7 @@
     <ClInclude Include="Include\UI\UIService.h" />
     <ClInclude Include="Include\UI\UIElement\UIView.h" />
     <ClInclude Include="Include\UI\UIElement\RectangleShapeView.h" />
+    <ClInclude Include="Include\Player\Direction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

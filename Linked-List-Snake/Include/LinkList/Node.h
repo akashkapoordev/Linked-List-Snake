@@ -1,7 +1,9 @@
 #pragma once
-#include "BodyPart.h"
-namespace Player
+#include "Player/BodyPart.h"
+
+namespace LinkList
 {
+	using namespace Player;
 	struct Node
 	{
 		BodyPart body_part;

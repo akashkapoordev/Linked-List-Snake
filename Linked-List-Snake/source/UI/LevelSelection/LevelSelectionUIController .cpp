@@ -92,7 +92,7 @@ namespace UI
 		void LevelSelectionUIController::doubleListButtonCallback()
 		{
 			GameService::setGameState(GameState::GAMEPLAY);
-			ServiceLocator::getInstance()->getLevelService()->createLevel(Level::LevelNumber::LEVEL_1);
+			ServiceLocator::getInstance()->getLevelService()->createLevel(Level::LevelNumber::LEVEL_2);
 			ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::BUTTON_CLICK);
 
 		}

@@ -26,8 +26,8 @@ namespace Level
 		void calculateGridExtends();
 
 	private:
-		float grid_height;
-		float grid_width;
+		float grid_size_height;
+		float grid_size_width;
 		UI::UIElement::RectangleShapeView* background;
 		UI::UIElement::RectangleShapeView* border_rectangle;
 		void createBorder();

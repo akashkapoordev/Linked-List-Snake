@@ -41,19 +41,19 @@ namespace Level
 
 	float LevelView::getWidth()
 	{
-		return grid_width;
+		return grid_size_width;
 	}
 
 	float LevelView::getHeight()
 	{
-		return grid_height;
+		return grid_size_height;
 	}
 
 	void LevelView::calculateGridExtends()
 	{
 		sf::RenderWindow* game_window = ServiceLocator::getInstance()->getGraphicService()->getGameWindow();
-		grid_width = game_window->getSize().x - 2 * border_offset_left;
-		grid_height = game_window->getSize().y - 2 * border_offset_top;
+		grid_size_width = game_window->getSize().x - 2 * border_offset_left;
+		grid_size_height = game_window->getSize().y - 2 * border_offset_top;
 	}
 
 	void LevelView::createBorder()
@@ -75,7 +75,7 @@ namespace Level
 
 	void LevelView::initializeBorder()
 	{
-		sf::Vector2f rectangle_size = sf::Vector2f(grid_width, grid_height);
+		sf::Vector2f rectangle_size = sf::Vector2f(grid_size_width, grid_size_height);
 		border_rectangle->initialize(rectangle_size, sf::Vector2f(border_offset_left, border_offset_top), border_thickness, sf::Color::Transparent, boarderColor);
 		border_rectangle->show();
 	}

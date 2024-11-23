@@ -44,7 +44,10 @@ namespace Player
 	}
 	void SnakeController::spwanSnake()
 	{
-		single_link_list->createHeadNode();
+		for (int i = 0; i < snake_length; i++)
+		{
+			single_link_list->attachNewTail();
+		}
 	}
 	void SnakeController::respwanSnake()
 	{

@@ -12,8 +12,8 @@ namespace LinkList
 		void initialize(float node_width, float node_height, sf::Vector2i pos, Direction dir);
 		void update();
 		void render();
+		void attachNewTail();
 
-		void createHeadNode();
 
 
 	private:
@@ -23,6 +23,7 @@ namespace LinkList
 		Node* createNode();
 		sf::Vector2i default_position;
 		Player::Direction default_direction; 
+		sf::Vector2i getNewNodePosition(Node* ref_node);
 
 	};
 

@@ -85,6 +85,33 @@ namespace LinkList
 
 	}
 
+	void SingleLinkedList::updateNodeDirection(Direction direction_to_set)
+	{
+		Node* current_node = head_node;
+
+		while (current_node->next!=nullptr)
+		{
+			Direction previous_direction = current_node->body_part.getDirection();
+			current_node->body_part.setDirection(direction_to_set);
+			direction_to_set = previous_direction;
+			current_node = current_node->next;
+		}
+	}
+
+	void SingleLinkedList::updateNodePosition()
+	{
+		Node* current_node = head_node;
+
+		while (current_node->next!=nullptr)
+		{
+
+			current_node->body_part.update();
+			current_node->next;
+
+			
+		}
+	}
+
 
 
 }

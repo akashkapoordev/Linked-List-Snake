@@ -28,6 +28,7 @@ namespace Player
 	}
 	void BodyPart::update()
 	{
+		//getNextPosition();
 		body_part_image->setPosition(getBodyPartScreenPositon());
 		body_part_image->setRotation(getRotationAngle());
 		body_part_image->update();

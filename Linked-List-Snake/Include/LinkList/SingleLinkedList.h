@@ -13,7 +13,8 @@ namespace LinkList
 		void update();
 		void render();
 		void attachNewTail();
-
+		void updateNodeDirection(Direction direction_to_set);
+		void updateNodePosition();
 
 
 	private:

@@ -32,8 +32,9 @@ namespace Player
 		{
 		case SnakeState::ALIVE:
 			processPlayerInput();
-			moveSnake();
+			updateSnakedirection();
 			processCollosionDetection();
+			moveSnake();
 			break;
 		case SnakeState::DEAD:
 			handleRestart();
@@ -101,6 +102,17 @@ namespace Player
 	}
 	void SnakeController::reset()
 	{
+	}
+	void SnakeController::delayUpdate()
+	{
+		escaped_time += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+		if (escaped_time >= movment_frame_diration)
+		{
+			
+			updateSnakedirection();
+			processCollosionDetection();
+			moveSnake();
+		}
 	}
 	void SnakeController::createSingleLinkList()
 	{

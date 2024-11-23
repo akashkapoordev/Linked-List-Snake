@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\LinkList\SingleLinkedList.cpp" />
     <ClCompile Include="source\Player\BodyPart.cpp" />
     <ClCompile Include="source\Player\SnakeController.cpp" />
     <ClCompile Include="source\Player\PlayerService.cpp" />
@@ -168,7 +169,8 @@
     <ClInclude Include="Include\Level\LevelNumber.h" />
     <ClInclude Include="Include\Level\LevelService.h" />
     <ClInclude Include="Include\Level\LevelView.h" />
-    <ClInclude Include="Include\Player\Node.h" />
+    <ClInclude Include="Include\LinkList\Node.h" />
+    <ClInclude Include="Include\LinkList\SingleLinkedList.h" />
     <ClInclude Include="Include\Player\PlayerService.h" />
     <ClInclude Include="Include\Player\SnakeController.h" />
     <ClInclude Include="Include\Time\TimeService.h" />

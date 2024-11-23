@@ -34,4 +34,12 @@ namespace Level
 		levelController->createLevel(number);
 		ServiceLocator::getInstance()->getPlayerService()->spwanPlayer();
 	}
+	float LevelService::cellWidth()
+	{
+		return levelController->cellWidth();
+	}
+	float LevelService::cellHeigth()
+	{
+		return levelController->cellHeight();
+	}
 }

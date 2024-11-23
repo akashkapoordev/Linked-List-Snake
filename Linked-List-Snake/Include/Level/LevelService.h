@@ -12,6 +12,8 @@ namespace Level
 		void render();
 
 		void createLevel(LevelNumber number);
+		float cellWidth();
+		float cellHeigth();
 	private:
 		LevelController* levelController;
 	};

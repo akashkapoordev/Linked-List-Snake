@@ -18,8 +18,9 @@ namespace Level
 
 	void Level::LevelController::initialize()
 	{
-		level_model->initialize(level_view->getWidth(), level_model->getHeight());
 		level_view->initialize();
+		level_model->initialize(level_view->getWidth(), level_view->getHeight());
+
 	}
 
 	void Level::LevelController::update()

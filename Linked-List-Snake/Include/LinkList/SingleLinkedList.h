@@ -1,5 +1,6 @@
 #pragma once
 #include "LinkList/Node.h"
+#include "Player/Direction.h" 
 namespace LinkList
 {
 	class SingleLinkedList
@@ -12,13 +13,16 @@ namespace LinkList
 		void update();
 		void render();
 
+		void createHeadNode();
+
+
 	private:
 		Node* head_node;
 		float node_width;
 		float node_height;
 		Node* createNode();
 		sf::Vector2i default_position;
-		Direction default_direction;
+		Player::Direction default_direction; 
 
 	};
 

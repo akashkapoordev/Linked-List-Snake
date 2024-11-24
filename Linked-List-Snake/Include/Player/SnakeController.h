@@ -31,9 +31,9 @@ namespace Player
 
 	private:
 		const float movment_frame_diration = 0.1f;
-		float escaped_time;
+		float elscaped_time;
 		const int snake_length = 10.0;
-		const sf::Vector2i snake_default_position = sf::Vector2i(25, 25);
+		const sf::Vector2i snake_default_position = sf::Vector2i(25, 15);
 		Direction default_snake_direction = Direction::RIGHT;
 		SnakeState current_snakestate;
 		Direction current_snake_direction;

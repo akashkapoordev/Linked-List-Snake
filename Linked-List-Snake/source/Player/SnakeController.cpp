@@ -8,7 +8,17 @@ namespace Player
 	using namespace Global;
 	using namespace LinkList;
 	using namespace Event;
-
+	inline std::ostream& operator<<(std::ostream& os, const Direction& direction)
+	{
+		switch (direction)
+		{
+		case Direction::UP: os << "UP"; break;
+		case Direction::DOWN: os << "DOWN"; break;
+		case Direction::LEFT: os << "LEFT"; break;
+		case Direction::RIGHT: os << "RIGHT"; break;
+		}
+		return os;
+	}
 	SnakeController::SnakeController()
 	{
 		single_link_list = nullptr;
@@ -32,9 +42,7 @@ namespace Player
 		{
 		case SnakeState::ALIVE:
 			processPlayerInput();
-			updateSnakedirection();
-			processCollosionDetection();
-			moveSnake();
+			delayUpdate();
 			break;
 		case SnakeState::DEAD:
 			handleRestart();
@@ -47,7 +55,7 @@ namespace Player
 	}
 	void SnakeController::spwanSnake()
 	{
-		for (int i = 0; i < snake_length; i++)
+		for (int i = 0; i <= snake_length; i++)
 		{
 			single_link_list->attachNewTail();
 		}
@@ -82,13 +90,17 @@ namespace Player
 		}
 		else if (event_service->pressedRightArrowKey() && current_snake_direction != Direction::LEFT)
 		{
-			default_snake_direction = Direction::RIGHT;
+			current_snake_direction = Direction::RIGHT;
 		}
 
 	}
 	void SnakeController::updateSnakedirection()
 	{
-		single_link_list->updateNodeDirection(current_snake_direction);
+		
+    
+
+   
+		single_link_list->updateNodeDirection(Direction::RIGHT);
 	}
 	void SnakeController::moveSnake()
 	{
@@ -105,10 +117,10 @@ namespace Player
 	}
 	void SnakeController::delayUpdate()
 	{
-		escaped_time += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-		if (escaped_time >= movment_frame_diration)
+		elscaped_time += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+		if (elscaped_time >= movment_frame_diration)
 		{
-			
+			elscaped_time = 0;
 			updateSnakedirection();
 			processCollosionDetection();
 			moveSnake();

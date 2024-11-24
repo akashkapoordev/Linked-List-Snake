@@ -1,7 +1,28 @@
 #include "LinkList/SingleLinkedList.h"
+#include <iostream>
 
 namespace LinkList
 {
+	// Add this function to handle the output of Direction enum
+	std::ostream& operator<<(std::ostream& os, const Player::Direction& direction)
+	{
+		switch (direction)
+		{
+		case Player::Direction::UP:
+			os << "UP";
+			break;
+		case Player::Direction::DOWN:
+			os << "DOWN";
+			break;
+		case Player::Direction::LEFT:
+			os << "LEFT";
+			break;
+		case Player::Direction::RIGHT:
+			os << "RIGHT";
+			break;
+		}
+		return os;
+	};
 	SingleLinkedList::SingleLinkedList()
 	{
 		head_node = nullptr;
@@ -40,8 +61,12 @@ namespace LinkList
 
 	sf::Vector2i SingleLinkedList::getNewNodePosition(Node* ref_node)
 	{
+
 		Direction ref_direction = ref_node->body_part.getDirection();
 		sf::Vector2i ref_position = ref_node->body_part.getgridPosition();
+		//std::cout << ref_direction << std::endl;
+       
+
 
 		switch (ref_direction)
 		{
@@ -89,8 +114,9 @@ namespace LinkList
 	{
 		Node* current_node = head_node;
 
-		while (current_node->next!=nullptr)
+		while (current_node!=nullptr)
 		{
+			//std::cout <<static_cast<int>(direction_to_set) << std::endl;
 			Direction previous_direction = current_node->body_part.getDirection();
 			current_node->body_part.setDirection(direction_to_set);
 			direction_to_set = previous_direction;
@@ -102,11 +128,11 @@ namespace LinkList
 	{
 		Node* current_node = head_node;
 
-		while (current_node->next!=nullptr)
+		while (current_node!=nullptr)
 		{
 
 			current_node->body_part.update();
-			current_node->next;
+			current_node = current_node->next;
 
 			
 		}

@@ -33,6 +33,8 @@ namespace Player
 		const float movement_frame_duration = 0.1f;
 		float elscaped_time;
 		const int snake_length = 10.0;
+		const float restart_duration = 2.f;
+		float restart_timer;
 		const sf::Vector2i snake_default_position = sf::Vector2i(25, 15);
 		Direction default_snake_direction = Direction::RIGHT;
 		SnakeState current_snakestate;
@@ -46,6 +48,7 @@ namespace Player
 		void delayUpdate();
 		LinkList::SingleLinkedList* single_link_list;
 		void createSingleLinkList();
+		
 
 	};
 

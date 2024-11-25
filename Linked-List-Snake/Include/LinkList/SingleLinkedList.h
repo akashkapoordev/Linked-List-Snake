@@ -15,6 +15,8 @@ namespace LinkList
 		void attachNewTail();
 		void updateNodeDirection(Direction direction_to_set);
 		void updateNodePosition();
+		bool processNodeCollision();
+
 
 
 	private:

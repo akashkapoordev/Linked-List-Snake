@@ -30,7 +30,7 @@ namespace Player
 		void setSnakeState(SnakeState state);
 
 	private:
-		const float movment_frame_diration = 0.1f;
+		const float movement_frame_duration = 0.1f;
 		float elscaped_time;
 		const int snake_length = 10.0;
 		const sf::Vector2i snake_default_position = sf::Vector2i(25, 15);

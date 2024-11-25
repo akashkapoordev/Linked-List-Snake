@@ -8,17 +8,7 @@ namespace Player
 	using namespace Global;
 	using namespace LinkList;
 	using namespace Event;
-	inline std::ostream& operator<<(std::ostream& os, const Direction& direction)
-	{
-		switch (direction)
-		{
-		case Direction::UP: os << "UP"; break;
-		case Direction::DOWN: os << "DOWN"; break;
-		case Direction::LEFT: os << "LEFT"; break;
-		case Direction::RIGHT: os << "RIGHT"; break;
-		}
-		return os;
-	}
+
 	SnakeController::SnakeController()
 	{
 		single_link_list = nullptr;
@@ -96,11 +86,7 @@ namespace Player
 	}
 	void SnakeController::updateSnakedirection()
 	{
-		
-    
-
-   
-		single_link_list->updateNodeDirection(Direction::RIGHT);
+		single_link_list->updateNodeDirection(current_snake_direction);
 	}
 	void SnakeController::moveSnake()
 	{
@@ -108,6 +94,10 @@ namespace Player
 	}
 	void SnakeController::processCollosionDetection()
 	{
+		if (single_link_list->processNodeCollision())
+		{
+			setSnakeState(SnakeState::DEAD);
+		}
 	}
 	void SnakeController::handleRestart()
 	{
@@ -118,12 +108,16 @@ namespace Player
 	void SnakeController::delayUpdate()
 	{
 		elscaped_time += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
-		if (elscaped_time >= movment_frame_diration)
+		if (elscaped_time >= movement_frame_duration)
 		{
 			elscaped_time = 0;
 			updateSnakedirection();
 			processCollosionDetection();
-			moveSnake();
+
+			if (getSnakeState() == SnakeState::ALIVE)
+			{
+				moveSnake();
+			}
 		}
 	}
 	void SnakeController::createSingleLinkList()

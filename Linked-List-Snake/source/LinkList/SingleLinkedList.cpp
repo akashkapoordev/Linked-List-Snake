@@ -158,6 +158,25 @@ namespace LinkList
 		return false;
 	}
 
+	void SingleLinkedList::removeNodeAtHead()
+	{
+		Node* current_node = head_node;
+		head_node = head_node->next;
+		current_node->next = nullptr;
+		delete(current_node);
+	}
+
+	void SingleLinkedList::removeAllNodes()
+	{
+		if (head_node == nullptr)return;
+
+		while(head_node != nullptr)
+		{
+			removeNodeAtHead();
+		}
+
+	}
+
 
 
 }

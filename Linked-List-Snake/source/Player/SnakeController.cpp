@@ -128,6 +128,7 @@ namespace Player
 		current_snake_direction = default_snake_direction;
 		elscaped_time = 0;
 		restart_timer = 0;
+		input_state = InputState::WAITING;
 		
 	}
 	void SnakeController::delayUpdate()

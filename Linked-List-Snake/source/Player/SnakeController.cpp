@@ -67,24 +67,34 @@ namespace Player
 
 	void SnakeController::processPlayerInput()
 	{
+		if (input_state == InputState::PROCESSING)
+		{
+			return;
+		}
 		EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
 		if (event_service->pressedUpArrowKey()&& current_snake_direction != Direction::DOWN)
 		{
 			current_snake_direction = Direction::UP;
+			input_state = InputState::PROCESSING;
 		}
 		else if (event_service->pressedDownArrowKey() && current_snake_direction != Direction::UP)
 		{
 			current_snake_direction = Direction::DOWN;
+			input_state = InputState::PROCESSING;
 		}
 		else if (event_service->pressedLeftArrowKey() && current_snake_direction != Direction::RIGHT)
 		{
 			current_snake_direction = Direction::LEFT;
+			input_state = InputState::PROCESSING;
 		}
 		else if (event_service->pressedRightArrowKey() && current_snake_direction != Direction::LEFT)
 		{
 			current_snake_direction = Direction::RIGHT;
+			input_state = InputState::PROCESSING;
 		}
+
+		
 
 	}
 	void SnakeController::updateSnakedirection()
@@ -99,6 +109,7 @@ namespace Player
 	{
 		if (single_link_list->processNodeCollision())
 		{
+			
 			setSnakeState(SnakeState::DEAD);
 		}
 	}
@@ -131,6 +142,7 @@ namespace Player
 			if (getSnakeState() == SnakeState::ALIVE)
 			{
 				moveSnake();
+				input_state = InputState::WAITING;
 			}
 		}
 	}

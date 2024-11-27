@@ -14,6 +14,7 @@ namespace Player
 
 
 
+
 	BodyPart::BodyPart()
 	{
 		grid_position = sf::Vector2i(0, 0);
@@ -98,6 +99,8 @@ namespace Player
     }
     sf::Vector2i BodyPart::getNextPosition()
     {
+		
+
 		switch (direction)
 		{
 		case Player::Direction::UP:

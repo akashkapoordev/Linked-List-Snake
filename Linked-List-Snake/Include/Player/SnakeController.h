@@ -11,6 +11,12 @@ namespace Player
 		DEAD
 	};
 
+	enum class InputState
+	{
+		PROCESSING,
+		WAITING
+	};
+
 	class  SnakeController
 	{
 	public:
@@ -48,6 +54,7 @@ namespace Player
 		void delayUpdate();
 		LinkList::SingleLinkedList* single_link_list;
 		void createSingleLinkList();
+		InputState input_state;
 		
 
 	};

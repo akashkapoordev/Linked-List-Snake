@@ -16,6 +16,8 @@ namespace Level
 		void createLevel(LevelNumber level_number);
 		float cellHeight();
 		float cellWidth();
+
+		const std::vector<Element::ElementData>& getElementDataList(int level_to_load);
 	private:
 		LevelNumber current_level;
 		LevelModel* level_model;

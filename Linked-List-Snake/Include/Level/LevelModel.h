@@ -17,9 +17,15 @@ namespace Level
 		float getWidth();
 		float getHeight();
 
+		const std::vector<ElementData>& getElementDataList(int level_to_load);
+
 	private:
+		std::vector<ElementData> level_one_element_list;
+		std::vector<ElementData> level_two_element_list;
 		std::vector<LevelData> level_configuration; 
 		float cell_height;
 		float cell_width;
+
+		void initializeLevelData();
 	};
 }

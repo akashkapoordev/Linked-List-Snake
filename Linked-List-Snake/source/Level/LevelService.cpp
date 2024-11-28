@@ -42,4 +42,14 @@ namespace Level
 	{
 		return levelController->cellHeight();
 	}
+
+	void LevelService::spwanLevelElements(LevelNumber level_number)
+	{
+		float cell_width = levelController->cellWidth();
+		float cell_height = levelController->cellHeight();
+
+		std::vector<Element::ElementData> element_data_list = levelController->getElementDataList((int)level_number);
+		ServiceLocator::getInstance()->getElementService()->spwanElements(element_data_list, cell_width, cell_height);
+	}
+	
 }

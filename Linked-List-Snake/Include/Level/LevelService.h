@@ -14,7 +14,10 @@ namespace Level
 		void createLevel(LevelNumber number);
 		float cellWidth();
 		float cellHeigth();
+
 	private:
 		LevelController* levelController;
+
+		void spwanLevelElements(LevelNumber level_number);
 	};
 }

@@ -40,6 +40,6 @@ namespace Level
 	void LevelModel::initializeLevelData()
 	{
 		level_configuration.push_back(LevelData(LevelNumber::LEVEL_1, &level_one_element_list));
-		//level_configuration.push_back(LevelData(LevelNumber::LEVEL_2, &level_two_element_list));
+		level_configuration.push_back(LevelData(LevelNumber::LEVEL_2, &level_two_element_list));
 	}
 }

@@ -47,37 +47,39 @@ namespace Global
 		graphic_service->initialize();
 		sound_service->initialize();
 		event_service->initialize();
+		level_service->initialize();
+		element_service->initialize();
+		player_service->initialize();
 		ui_service->initialize();
 		time_service->initialize();
-		level_service->initialize();
-		player_service->initialize();
-		element_service->initialize();
 	}
 
 	void ServiceLocator::update()
 	{
 		graphic_service->update();
 		event_service->update();
-		ui_service->update();
+		
 		time_service->update();
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
 			level_service->update();
-			player_service->update();
 			element_service->update();
+			player_service->update();
 		}
+		ui_service->update();
 	}
 
 	void ServiceLocator::render()
 	{
-		ui_service->render();
+		
 		graphic_service->render();
 		if (GameService::getGameState() == GameState::GAMEPLAY)
 		{
 			level_service->render();
-			player_service->render();
 			element_service->render();
+			player_service->render();
 		}
+		ui_service->render();
 	}
 
 	void ServiceLocator::clearAllServices()

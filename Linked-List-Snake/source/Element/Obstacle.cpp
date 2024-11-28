@@ -23,6 +23,7 @@ namespace Element
 		grid_position = pos;
 		obstacle_width = width;
 		obstacle_height = height;
+		initializeObstacleImage();
 	}
 
 	void Obstacle::update()

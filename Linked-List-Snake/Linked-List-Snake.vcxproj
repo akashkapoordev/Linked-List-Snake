@@ -133,6 +133,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Element\ElementService.cpp" />
+    <ClCompile Include="source\Element\Obstacle.cpp" />
     <ClCompile Include="source\LinkList\SingleLinkedList.cpp" />
     <ClCompile Include="source\Player\BodyPart.cpp" />
     <ClCompile Include="source\Player\SnakeController.cpp" />
@@ -163,6 +165,9 @@
     <ClCompile Include="source\UI\UIElement\UIView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\Element\ElementData.h" />
+    <ClInclude Include="Include\Element\ElementService.h" />
+    <ClInclude Include="Include\Element\Obstacle.h" />
     <ClInclude Include="Include\Level\LevelController.h" />
     <ClInclude Include="Include\Level\LevelData.h" />
     <ClInclude Include="Include\Level\LevelModel.h" />

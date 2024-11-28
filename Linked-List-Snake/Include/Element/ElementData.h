@@ -10,10 +10,14 @@ namespace Element
 	struct ElementData
 	{
 	public:
-		ElementData(ElementType type, sf::Vector2i pos);
+		ElementData(ElementType type, sf::Vector2i pos)
+		{
+			element_type = type;
+			element_positon = pos;
+		};
 
+		
 		ElementType element_type;
 		sf::Vector2i element_positon;
-
 	};
 }

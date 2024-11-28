@@ -4,6 +4,8 @@
 
 namespace Level
 {
+	using namespace Element;
+
 	Level::LevelController::LevelController()
 	{
 		level_model = new LevelModel();
@@ -44,11 +46,12 @@ namespace Level
 	{
 		return level_model->getWidth();
 	}
+
 	const std::vector<Element::ElementData>& LevelController::getElementDataList(int level_to_load)
 	{
-		// TODO: insert return statement here
 		return level_model->getElementDataList(level_to_load);
 	}
+
 }
 
 

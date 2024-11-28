@@ -1,4 +1,6 @@
 #pragma once
+#include "LevelModel.h"
+
 namespace Level
 {
 	enum class LevelNumber;
@@ -18,6 +20,7 @@ namespace Level
 		float cellWidth();
 
 		const std::vector<Element::ElementData>& getElementDataList(int level_to_load);
+
 	private:
 		LevelNumber current_level;
 		LevelModel* level_model;

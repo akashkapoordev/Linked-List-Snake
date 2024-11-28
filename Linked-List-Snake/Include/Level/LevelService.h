@@ -1,7 +1,8 @@
 #pragma once
-#include "Level/LevelController.h"
+#include "LevelNumber.h"
 namespace Level
 {
+	class LevelController;
 	class LevelService
 	{
 	public:
@@ -17,7 +18,7 @@ namespace Level
 
 	private:
 		LevelController* levelController;
-
+		LevelNumber current_level;
 		void spwanLevelElements(LevelNumber level_number);
 	};
 }

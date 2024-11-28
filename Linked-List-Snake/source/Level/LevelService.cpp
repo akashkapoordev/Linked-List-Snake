@@ -1,5 +1,8 @@
 #include "Level/LevelService.h"
+#include "Level/LevelController.h"
 #include "Global/ServiceLocator.h"
+#include "Element/ElementService.h"
+#include "Level/LevelModel.h"
 
 namespace Level
 {
@@ -31,7 +34,9 @@ namespace Level
 	}
 	void LevelService::createLevel(LevelNumber number)
 	{
-		levelController->createLevel(number);
+		current_level = number;
+		//levelController->createLevel(number);
+		spwanLevelElements(number);
 		ServiceLocator::getInstance()->getPlayerService()->spwanPlayer();
 	}
 	float LevelService::cellWidth()

@@ -40,4 +40,14 @@ namespace Element
 			}
 		}
 	}
+	std::vector<sf::Vector2i> ElementService::getElementPosition()
+	{
+		std::vector<sf::Vector2i> element_position;
+		for (int i = 0; i < obstacle_list.size(); i++)
+		{
+			element_position.push_back(obstacle_list[i]->getObstaclePositionList());
+		}
+
+		return element_position;
+	}
 }

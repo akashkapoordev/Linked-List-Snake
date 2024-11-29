@@ -35,6 +35,8 @@ namespace Player
 		SnakeState getSnakeState();
 		void setSnakeState(SnakeState state);
 
+		std::vector<sf::Vector2i> getCurrentSnakePositionList();
+
 	private:
 		const float movement_frame_duration = 0.1f;
 		float elscaped_time;

@@ -160,6 +160,24 @@ namespace LinkList
 
 	}
 
+	std::vector<sf::Vector2i> SingleLinkedList::getNodePositionList()
+	{
+		std::vector<sf::Vector2i> node_position_list;
+
+		Node* current_node = head_node;
+
+
+		while (current_node != nullptr)
+		{
+			node_position_list.push_back(current_node->body_part.getgridPosition());
+			current_node = current_node->next;
+		}
+
+		return node_position_list;
+	}
+
+
+
 
 
 }

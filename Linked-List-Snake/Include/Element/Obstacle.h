@@ -11,6 +11,7 @@ namespace Element
 		void intialize(sf::Vector2i pos, float width, float height);
 		void update();
 		void render();
+		sf::Vector2i getObstaclePositionList();
 
 	private:
 		UI::UIElement::ImageView* obstacle_image;

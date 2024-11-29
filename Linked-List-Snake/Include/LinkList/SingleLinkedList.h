@@ -19,6 +19,8 @@ namespace LinkList
 		void removeNodeAtHead();
 		void removeAllNodes();
 
+		std::vector<sf::Vector2i> getNodePositionList();
+
 
 
 	private:

@@ -13,6 +13,7 @@ namespace Player
 		void render();
 
 		void spwanPlayer();
+		std::vector<sf::Vector2i> getCurrentSnakePositionList();
 
 	private:
 		SnakeController* snake_controller;

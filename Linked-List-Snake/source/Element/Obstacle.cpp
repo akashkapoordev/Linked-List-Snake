@@ -36,6 +36,13 @@ namespace Element
 		obstacle_image->render();
 	}
 
+	sf::Vector2i Obstacle::getObstaclePositionList()
+	{
+		return grid_position;
+
+
+	}
+
 	void Obstacle::createImage()
 	{
 		obstacle_image = new ImageView();

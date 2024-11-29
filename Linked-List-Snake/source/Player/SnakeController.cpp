@@ -65,6 +65,11 @@ namespace Player
 		current_snakestate = state;
 	}
 
+	std::vector<sf::Vector2i> SnakeController::getCurrentSnakePositionList()
+	{
+		return single_link_list->getNodePositionList();
+	}
+
 	void SnakeController::processPlayerInput()
 	{
 		if (input_state == InputState::PROCESSING)

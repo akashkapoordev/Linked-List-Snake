@@ -1,6 +1,9 @@
 #include "Food/FoodItem.h"
 #include "Global/Config.h"
 #include "Level/LevelView.h"
+#include <iostream>
+#include <string>
+using namespace std;
 namespace Food
 {
 	using namespace Global;
@@ -66,6 +69,10 @@ namespace Food
 	{
 		sf::Vector2f position = getfoodPosition();
 		sf::String food_texture = getFoodTextures();
+
+	
+        // Replace the problematic line with the following
+        std::cout << food_texture.toAnsiString() << std::endl;
 		food_image->initialize(food_texture, food_width, food_height, position);
 		food_image->show();
 

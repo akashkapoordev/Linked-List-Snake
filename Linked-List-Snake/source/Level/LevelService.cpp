@@ -3,11 +3,12 @@
 #include "Global/ServiceLocator.h"
 #include "Element/ElementService.h"
 #include "Level/LevelModel.h"
+#include "Food/FoodService.h"
 
 namespace Level
 {
 	using namespace Global;
-
+	using namespace Food;
 	LevelService::LevelService()
 	{
 		levelController = new LevelController();
@@ -37,10 +38,13 @@ namespace Level
 		current_level = number;
 		//levelController->createLevel(number);
 		spwanLevelElements(number);
+		spwanFood();
 		ServiceLocator::getInstance()->getPlayerService()->spwanPlayer();
+	
 	}
 	float LevelService::cellWidth()
 	{
+		
 		return levelController->cellWidth();
 	}
 	float LevelService::cellHeigth()
@@ -55,6 +59,11 @@ namespace Level
 
 		std::vector<Element::ElementData> element_data_list = levelController->getElementDataList((int)level_number);
 		ServiceLocator::getInstance()->getElementService()->spwanElements(element_data_list, cell_width, cell_height);
+	}
+
+	void LevelService::spwanFood()
+	{
+		ServiceLocator::getInstance()->getFoodService()->startFoodSpawing();
 	}
 	
 }

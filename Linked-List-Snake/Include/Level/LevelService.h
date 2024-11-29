@@ -20,5 +20,6 @@ namespace Level
 		LevelController* levelController;
 		LevelNumber current_level;
 		void spwanLevelElements(LevelNumber level_number);
+		void spwanFood();
 	};
 }

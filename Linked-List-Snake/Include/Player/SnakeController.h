@@ -57,6 +57,10 @@ namespace Player
 		LinkList::SingleLinkedList* single_link_list;
 		void createSingleLinkList();
 		InputState input_state;
+
+		void bodyCollision();
+		void elementCollision();
+		void foodCollision();
 		
 
 	};

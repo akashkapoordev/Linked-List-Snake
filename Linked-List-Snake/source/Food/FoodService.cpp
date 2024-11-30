@@ -5,6 +5,9 @@
 #include <iostream>
 namespace Food
 {
+
+	using namespace Level;
+	// Existing code...
 	using namespace Global;
 	FoodService::FoodService():random_engine(rd())
 	{
@@ -12,19 +15,26 @@ namespace Food
 	}
 	FoodService::~FoodService()
 	{
-		delete(current_food);
+		destroyFood();
 	}
 	void FoodService::initialize()
 	{
-		
+		elapsed_timer = spwan_timer;
 	}
 	void FoodService::update()
 	{
-		current_food->update();
+		if (current_spwaning_status == FoodSpwaningStatus::ACTIVE)
+		{
+			updateElapsedDuration();
+			handleFoodSpwaning();
+			
+		}
+		if(current_food) current_food->update();
+		
 	}
 	void FoodService::render()
 	{
-		current_food->render();
+		if (current_food) current_food->render();
 	}
 	void FoodService::spwanFood()
 	{
@@ -32,25 +42,27 @@ namespace Food
 	}
 	void FoodService::startFoodSpawing()
 	{
+		current_spwaning_status = FoodSpwaningStatus::ACTIVE;
 		food_width = ServiceLocator::getInstance()->getLevelService()->cellWidth();
 		food_height = ServiceLocator::getInstance()->getLevelService()->cellHeigth();
-		std::cout << food_width << std::endl;
-		std::cout << food_height << std::endl;
-		spwanFood();
+		
 	}
 	sf::Vector2i FoodService::getVaildSpawnPosition()
 	{
 		std::vector<sf::Vector2i> player_position_data = ServiceLocator::getInstance()->getPlayerService()->getCurrentSnakePositionList();
-		std::vector<sf::Vector2i> element_position_data = ServiceLocator::getInstance()->getElementService()->getElementPosition();
+		std::vector<sf::Vector2i> elements_position_data = ServiceLocator::getInstance()->getElementService()->getElementPosition();
+		sf::Vector2i spawn_position;
 
-		sf::Vector2i spwan_position;
+		do spawn_position = getRandomPosition();
+		while (!isVaildPosition(player_position_data, spawn_position) || !isVaildPosition(elements_position_data, spawn_position));
 
-		do spwan_position = setRandomPosition();
-		while (!isVaildPosition(player_position_data, spwan_position) || !isVaildPosition(element_position_data, spwan_position));
-
-		return spwan_position;
+		return spawn_position;
 	
 
+	}
+	void FoodService::reset()
+	{
+		elapsed_timer = 0;
 	}
 	FoodItem* FoodService::createFoodItem(sf::Vector2i position,FoodType type)
 	{
@@ -58,12 +70,13 @@ namespace Food
 		food->initialize(position, food_width, food_height, type);
 		return food;
 	}
-	sf::Vector2i FoodService::setRandomPosition()
+	sf::Vector2i FoodService::getRandomPosition()
 	{
-		std::uniform_int_distribution<int>x_distrbution(0, Level::LevelModel::number_of_columns-1);
-		std::uniform_int_distribution<int>y_distribution(0, Level::LevelModel::number_of_rows - 1);
+		// Coordinate distribution for selecting a random position for food
+		std::uniform_int_distribution<int> x_distribution(0, LevelModel::number_of_columns - 1);
+		std::uniform_int_distribution<int> y_distribution(0, LevelModel::number_of_rows - 1);
 
-		int x_position = x_distrbution(random_engine);
+		int x_position = x_distribution(random_engine);
 		int y_position = y_distribution(random_engine);
 
 		return sf::Vector2i(x_position, y_position);
@@ -86,5 +99,30 @@ namespace Food
 		std::uniform_int_distribution<int> random_food(0, FoodItem::number_of_food - 1);
 
 		return static_cast<FoodType>(random_food(random_engine));
+	}
+	void FoodService::updateElapsedDuration()
+	{
+		elapsed_timer += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+	
+	}
+	void FoodService::handleFoodSpwaning()
+	{
+		if (elapsed_timer >= spwan_timer)
+		{
+			destroyFood();
+			reset();
+			spwanFood();
+
+		}
+	}
+	void FoodService::stopFoodSpwaning()
+	{
+		current_spwaning_status = FoodSpwaningStatus::IN_ACTIVE;
+		destroyFood();
+		reset();
+	}
+	void FoodService::destroyFood()
+	{
+		if (current_food) delete(current_food);
 	}
 }

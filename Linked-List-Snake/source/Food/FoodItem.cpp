@@ -72,7 +72,7 @@ namespace Food
 
 	
         // Replace the problematic line with the following
-        std::cout << food_texture.toAnsiString() << std::endl;
+       // std::cout << food_texture.toAnsiString() << std::endl;
 		food_image->initialize(food_texture, food_width, food_height, position);
 		food_image->show();
 
@@ -83,8 +83,12 @@ namespace Food
 	}
 	sf::Vector2f FoodItem::getfoodPosition()
 	{
-		float x = LevelView::border_offset_left + (food_width + grid_position.x);
-		float y = LevelView::border_offset_top + (food_height + grid_position.y);
+		float x = LevelView::border_offset_left + (food_width * grid_position.x);
+		float y = LevelView::border_offset_top + (food_height * grid_position.y);
+
+		std::cout << x << endl;
+		std::cout << y << endl;
+
 		return sf::Vector2f(x, y);
 	}
 }

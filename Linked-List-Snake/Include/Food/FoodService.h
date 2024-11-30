@@ -1,5 +1,6 @@
 #pragma once
 #include "Food/FoodItem.h"
+#include "LinkList/Node.h"
 #include <random>
 namespace Food
 {
@@ -24,6 +25,8 @@ namespace Food
 		void startFoodSpawing();
 		sf::Vector2i getVaildSpawnPosition();
 		void reset();
+
+		bool processFoodCollision(LinkList::Node* head_node, FoodType& out_foodtype);
 
 	private:
 		const float spwan_timer = 4.0f;

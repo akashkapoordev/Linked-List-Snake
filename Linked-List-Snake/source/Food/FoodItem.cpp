@@ -39,6 +39,10 @@ namespace Food
 	{
 		return food_type;
 	}
+	sf::Vector2i FoodItem::getFoodGridPosition()
+	{
+		return grid_position;
+	}
 	sf::String FoodItem::getFoodTextures()
 	{
 		switch (food_type)
@@ -71,8 +75,7 @@ namespace Food
 		sf::String food_texture = getFoodTextures();
 
 	
-        // Replace the problematic line with the following
-       // std::cout << food_texture.toAnsiString() << std::endl;
+
 		food_image->initialize(food_texture, food_width, food_height, position);
 		food_image->show();
 

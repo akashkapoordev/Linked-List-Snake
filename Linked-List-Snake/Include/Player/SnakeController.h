@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Player/Direction.h"
 #include "LinkList/SingleLinkedList.h"
+#include "Food/Food.h"
 
 namespace Player
 {
@@ -43,7 +44,7 @@ namespace Player
 		const int snake_length = 10.0;
 		const float restart_duration = 2.f;
 		float restart_timer;
-		const sf::Vector2i snake_default_position = sf::Vector2i(25, 15);
+		const sf::Vector2i snake_default_position = sf::Vector2i(25, 10);
 		Direction default_snake_direction = Direction::RIGHT;
 		SnakeState current_snakestate;
 		Direction current_snake_direction;
@@ -61,6 +62,7 @@ namespace Player
 		void bodyCollision();
 		void elementCollision();
 		void foodCollision();
+		void onFoodCollected(Food::FoodType food_type);
 		
 
 	};

@@ -21,6 +21,8 @@ namespace LinkList
 
 		std::vector<sf::Vector2i> getNodePositionList();
 
+		Node* getHeadNode();
+
 
 
 	private:

@@ -3,6 +3,7 @@
 #include "Event/EventService.h"
 #include <iostream>
 #include "Sound/SoundService.h"
+#include "Food/FoodService.h"
 
 namespace Player
 {
@@ -10,6 +11,7 @@ namespace Player
 	using namespace LinkList;
 	using namespace Event;
 	using namespace Sound;
+	using namespace Food;
 
 	SnakeController::SnakeController()
 	{
@@ -167,9 +169,51 @@ namespace Player
 	}
 	void SnakeController::elementCollision()
 	{
+		Element::ElementService* element_service = ServiceLocator::getInstance()->getElementService();
+		if (element_service->processElementCollision(single_link_list->getHeadNode()))
+		{
+			setSnakeState(SnakeState::DEAD);
+			ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::DEATH);
+		}
+		
 	}
 	void SnakeController::foodCollision()
 	{
+		Food::FoodService* food_service = ServiceLocator::getInstance()->getFoodService();
+		FoodType food_type;
+
+		if (food_service->processFoodCollision(single_link_list->getHeadNode(), food_type))
+		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::PICKUP);
+			onFoodCollected(food_type);
+
+		}
 	}
+
+	void SnakeController::onFoodCollected(FoodType food_type)
+	{
+		switch (food_type)
+		{
+		case Food::FoodType::APPLE:
+			break;
+		case Food::FoodType::MANGO:
+			break;
+		case Food::FoodType::ORANGE:
+			break;
+		case Food::FoodType::PIZZA:
+			break;
+		case Food::FoodType::BURGER:
+			break;
+		case Food::FoodType::CHEESE:
+			break;
+		case Food::FoodType::POISION:
+			break;
+		case Food::FoodType::ALCOHOL:
+			break;
+		default:
+			break;
+		}
+	}
+
 }
 

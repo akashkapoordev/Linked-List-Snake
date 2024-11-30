@@ -2,6 +2,7 @@
 
 namespace Element
 {
+	using namespace LinkList;
 	ElementService::ElementService() = default;
 	ElementService::~ElementService() = default;
 
@@ -49,5 +50,18 @@ namespace Element
 		}
 
 		return element_position;
+	}
+	bool ElementService::processElementCollision(LinkList::Node* head_node)
+	{
+		for (int i = 0; i < obstacle_list.size(); i++)
+		{
+			if (obstacle_list[i]->getObstaclePositionList() == head_node->body_part.getNextPosition() || obstacle_list[i]->getObstaclePositionList() == head_node->body_part.getgridPosition())
+			{
+				return true;
+			}
+		}
+		return false;
+		
+		
 	}
 }

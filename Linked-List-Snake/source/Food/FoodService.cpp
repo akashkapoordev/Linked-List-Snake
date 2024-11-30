@@ -64,6 +64,16 @@ namespace Food
 	{
 		elapsed_timer = 0;
 	}
+	bool FoodService::processFoodCollision(LinkList::Node* head_node, FoodType& out_foodtype)
+	{
+		if (current_food && current_food->getFoodGridPosition() == head_node->body_part.getgridPosition() )
+		{
+			out_foodtype = current_food->getFoodType();
+			return true;
+		}
+		return false;
+
+	}
 	FoodItem* FoodService::createFoodItem(sf::Vector2i position,FoodType type)
 	{
 		FoodItem* food = new FoodItem();
@@ -72,7 +82,6 @@ namespace Food
 	}
 	sf::Vector2i FoodService::getRandomPosition()
 	{
-		// Coordinate distribution for selecting a random position for food
 		std::uniform_int_distribution<int> x_distribution(0, LevelModel::number_of_columns - 1);
 		std::uniform_int_distribution<int> y_distribution(0, LevelModel::number_of_rows - 1);
 

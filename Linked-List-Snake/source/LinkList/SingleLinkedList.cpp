@@ -133,6 +133,34 @@ namespace LinkList
 		initializeNewNode(current_node, previous_node, Operations::TAIL);
 	}
 
+	int SingleLinkedList::findMiddleIndex()
+	{
+		Node* fast = head_node;
+		Node* slow = head_node;
+
+		int middle_index = 0;
+
+		while (fast != nullptr && fast->next != nullptr)
+		{
+			slow = slow->next;
+			fast = fast->next->next;
+			middle_index++;
+		}
+
+		return middle_index;
+	}
+
+	void SingleLinkedList::nodeInsetAtMiddle()
+	{
+		if (head_node == nullptr)
+		{
+			insertNodeAtHead();
+			return;
+		}
+		int middle_index = findMiddleIndex();
+		insertNodeAtIndex(middle_index);
+	}
+
 
 
 	void SingleLinkedList::attachNewTail()

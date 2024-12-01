@@ -238,10 +238,10 @@ namespace LinkList
 
 	void SingleLinkedList::removeNodeAtHead()
 	{
+		link_list_size--;
 		Node* current_node = head_node;
 		head_node = head_node->next;
 		current_node->next = nullptr;
-		//std::cout << "Delete" << std::endl;
 		delete(current_node);
 	}
 

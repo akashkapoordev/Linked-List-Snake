@@ -14,6 +14,7 @@ namespace LinkList
 	public:
 		SingleLinkedList();
 		~SingleLinkedList();
+		int link_list_size;
 
 		void initialize(float node_width, float node_height, sf::Vector2i pos, Direction dir);
 		void update();
@@ -40,6 +41,7 @@ namespace LinkList
 		Player::Direction default_direction; 
 		sf::Vector2i getNewNodePosition(Node* ref_node,Operations operation);
 		void initializeNewNode(Node* new_node, Node* ref_node,Operations operation);
+		void insertNodeAtHead();
 		
 
 	};

@@ -12,6 +12,7 @@ namespace LinkList
 
 	void SingleLinkedList::initialize(float width, float height, sf::Vector2i pos, Direction dir)
 	{
+		link_list_size = 0;
 		node_width = width;
 		node_height = height;
 		default_position = pos;
@@ -64,6 +65,23 @@ namespace LinkList
 			return;
 		}
 		new_node->body_part.initialize(node_width, node_height, ref_node->body_part.getDirection(), getNewNodePosition(ref_node, operation));
+	}
+
+	void SingleLinkedList::insertNodeAtHead()
+	{
+		link_list_size++;
+		Node* new_node = createNode();
+
+		if (head_node == nullptr)
+		{
+			head_node = new_node;
+			initializeNewNode(new_node, nullptr, Operations::HEAD);
+			return;
+		}
+
+		initializeNewNode(new_node, head_node, Operations::HEAD);
+		new_node->next = head_node;
+		head_node = new_node;
 	}
 
 

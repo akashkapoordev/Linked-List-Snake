@@ -88,13 +88,14 @@ namespace LinkList
 
 	void SingleLinkedList::attachNewTail()
 	{
+		link_list_size++;
 		Node* new_node = createNode();
 		Node* current_node = head_node;
 
 		if (current_node == nullptr)
 		{
 			head_node = new_node;
-			new_node->body_part.initialize(node_width, node_height, default_direction, default_position);
+			initializeNewNode(new_node, nullptr, Operations::TAIL);
 			return;
 		}
 
@@ -104,7 +105,7 @@ namespace LinkList
 		}
 
 		current_node->next = new_node;
-		new_node->body_part.initialize(node_width, node_height,current_node->body_part.getDirection(),getNewNodePosition(current_node));
+		initializeNewNode(new_node, current_node, Operations::TAIL);
 		
 
 	}

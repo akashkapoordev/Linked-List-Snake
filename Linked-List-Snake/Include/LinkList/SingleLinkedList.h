@@ -3,6 +3,12 @@
 #include "Player/Direction.h" 
 namespace LinkList
 {
+	enum class Operations
+	{
+		HEAD,
+		MID,
+		TAIL
+	};
 	class SingleLinkedList
 	{
 	public:
@@ -32,7 +38,9 @@ namespace LinkList
 		Node* createNode();
 		sf::Vector2i default_position;
 		Player::Direction default_direction; 
-		sf::Vector2i getNewNodePosition(Node* ref_node);
+		sf::Vector2i getNewNodePosition(Node* ref_node,Operations operation);
+		void initializeNewNode(Node* new_node, Node* ref_node,Operations operation);
+		
 
 	};
 

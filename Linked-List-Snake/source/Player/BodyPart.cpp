@@ -97,6 +97,22 @@ namespace Player
 		//std::cout << grid_position.x + 1 << std::endl;
         return sf::Vector2i((grid_position.x + 1) % Level::LevelModel::number_of_columns, grid_position.y);
     }
+	sf::Vector2i BodyPart::getPreviousPosition()
+	{
+		switch (direction)
+		{
+		case Player::Direction::RIGHT:
+			return getNextPositionLeft();
+		case Player::Direction::UP:
+			return getNextPositionDown();
+		case Player::Direction::DOWN:
+			return getNextPositionUp();
+		case Player::Direction::LEFT:
+			return getNextPositionRight();
+		default:
+			return grid_position;
+		}
+	}
     sf::Vector2i BodyPart::getNextPosition()
     {
 		

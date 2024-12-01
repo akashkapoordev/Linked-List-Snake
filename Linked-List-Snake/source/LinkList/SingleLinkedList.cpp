@@ -40,33 +40,33 @@ namespace LinkList
 		return new Node();
 	}
 
-	sf::Vector2i SingleLinkedList::getNewNodePosition(Node* ref_node)
+	sf::Vector2i SingleLinkedList::getNewNodePosition(Node* ref_node, Operations operation)
 	{
-
-		Direction ref_direction = ref_node->body_part.getDirection();
-		sf::Vector2i ref_position = ref_node->body_part.getgridPosition();
-		//std::cout << ref_direction << std::endl;
-       
-
-
-		switch (ref_direction)
+		
+		switch (operation)
 		{
-		case Player::Direction::UP:
-			return sf::Vector2i(ref_position.x, ref_position.y - 1);
+		case LinkList::Operations::HEAD:
+			return ref_node->body_part.getNextPosition();
+		case LinkList::Operations::MID:
 			break;
-		case Player::Direction::DOWN:
-			return sf::Vector2i(ref_position.x, ref_position.y + 1);
-			break;
-		case Player::Direction::LEFT:
-			return sf::Vector2i(ref_position.x + 1, ref_position.y);
-			break;
-		case Player::Direction::RIGHT:
-			return sf::Vector2i(ref_position.x - 1, ref_position.y);
-			break;
+		case LinkList::Operations::TAIL:
+			return ref_node->body_part.getPreviousPosition();
 		}
 
 		return default_position;
 	}
+
+	void SingleLinkedList::initializeNewNode(Node* new_node, Node* ref_node, Operations operation)
+	{
+		if (ref_node == nullptr)
+		{
+			new_node->body_part.initialize(node_width, node_height, default_direction, default_position);
+			return;
+		}
+		new_node->body_part.initialize(node_width, node_height, ref_node->body_part.getDirection(), getNewNodePosition(ref_node, operation));
+	}
+
+
 
 	void SingleLinkedList::attachNewTail()
 	{

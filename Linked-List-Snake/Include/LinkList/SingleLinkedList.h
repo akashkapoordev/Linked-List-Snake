@@ -42,6 +42,8 @@ namespace LinkList
 		sf::Vector2i getNewNodePosition(Node* ref_node,Operations operation);
 		void initializeNewNode(Node* new_node, Node* ref_node,Operations operation);
 		void insertNodeAtHead();
+		void insertNodeAtIndex(int index);
+		void shiftNodesAfterInsertion(Node* new_node, Node* current_node, Node* previous_node);
 		
 
 	};

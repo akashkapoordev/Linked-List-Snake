@@ -243,10 +243,46 @@ namespace LinkList
 		if (current_node->next->next != nullptr)
 		{
 			current_node = current_node->next;
+
 		}
 
 		delete(current_node->next);
 		current_node->next = nullptr;
+
+	}
+
+	Node* SingleLinkedList::findNodeAtIndex(int index)
+	{
+		if (index <0 || index > link_list_size)return;
+
+		int current_index = 0;
+		Node* current_node = head_node;
+		while (current_node != nullptr && current_index > index)
+		{
+	
+			current_node = current_node->next;
+			current_index++;
+		}
+
+		return current_node;
+	}
+
+	void SingleLinkedList::removeHalfNode()
+	{
+		int index = (link_list_size / 2) - 1;
+		Node* previous_node = findNodeAtIndex(index);
+		Node* current_node = previous_node->next;
+
+		while (current_node != nullptr)
+		{
+			Node* node_to_delete = current_node;
+			current_node = current_node->next;
+
+			delete(node_to_delete);
+			link_list_size--;
+		}
+
+		previous_node->next = nullptr;
 
 	}
 

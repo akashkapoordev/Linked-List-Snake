@@ -51,6 +51,8 @@ namespace LinkList
 		void removeAtNode(int index);
 		void nodeRemoveAtMiddle();
 		void removeAtTail();
+		Node* findNodeAtIndex(int index);
+		void removeHalfNode();
 		
 
 	};

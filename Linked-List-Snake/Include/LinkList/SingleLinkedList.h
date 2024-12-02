@@ -46,6 +46,10 @@ namespace LinkList
 		void shiftNodesAfterInsertion(Node* new_node, Node* current_node, Node* previous_node);
 		int findMiddleIndex();
 		void nodeInsetAtMiddle();
+		void shiftNodesAfterRemoval(Node* current_node);
+		void removeAtIndex(int index);
+		void removeAtNode(int index);
+		void nodeRemoveAtMiddle();
 		
 
 	};

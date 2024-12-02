@@ -161,6 +161,73 @@ namespace LinkList
 		insertNodeAtIndex(middle_index);
 	}
 
+	void SingleLinkedList::shiftNodesAfterRemoval(Node* current_node)
+	{
+		Direction previous_direction = current_node->body_part.getDirection();
+		sf::Vector2i previous_position = current_node->body_part.getgridPosition();
+		current_node = current_node->next;
+
+		while (current_node != nullptr)
+		{
+			Direction current_direction = current_node->body_part.getDirection();
+			sf::Vector2i current_postion = current_node->body_part.getgridPosition();
+
+			current_node->body_part.setDirection(previous_direction);
+			current_node->body_part.setPosition(previous_position);
+			current_node = current_node->next;
+
+			previous_direction = current_direction;
+			previous_position = current_postion;
+		}
+	}
+
+	void SingleLinkedList::removeAtIndex(int index)
+	{
+		if (index < 0 || index >= link_list_size)return;
+
+		int current_index = 0;
+		Node* current_node = head_node;
+		Node* previous_node = nullptr;
+		while (current_node != nullptr && current_index < index)
+		{
+			previous_node = current_node;
+			current_node = current_node->next;
+			current_index++;
+		}
+
+		previous_node->next = current_node->next;
+
+		shiftNodesAfterRemoval(current_node);
+		delete(current_node);
+		link_list_size--;
+
+
+	}
+
+	void SingleLinkedList::removeAtNode(int index)
+	{
+		if (index < 0 || index >= link_list_size) return;
+
+		if (index == 0)
+		{
+			removeNodeAtHead();
+		}
+		else
+		{
+			removeAtIndex(index);
+		}
+	}
+
+	void SingleLinkedList::nodeRemoveAtMiddle()
+	{
+		if (head_node == nullptr) return;
+
+		int middle_index = findMiddleIndex();
+
+		removeAtIndex(middle_index);
+
+	}
+
 
 
 	void SingleLinkedList::attachNewTail()

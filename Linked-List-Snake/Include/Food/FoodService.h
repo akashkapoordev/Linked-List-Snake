@@ -27,6 +27,7 @@ namespace Food
 		void reset();
 
 		bool processFoodCollision(LinkList::Node* head_node, FoodType& out_foodtype);
+		void destroyFood();
 
 	private:
 		const float spwan_timer = 4.0f;
@@ -44,7 +45,6 @@ namespace Food
 		void handleFoodSpwaning();
 		void stopFoodSpwaning();
 		FoodSpwaningStatus current_spwaning_status;
-		void destroyFood();
 	};
 
 

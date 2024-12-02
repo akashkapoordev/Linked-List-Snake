@@ -195,24 +195,43 @@ namespace Player
 		switch (food_type)
 		{
 		case Food::FoodType::APPLE:
+			single_link_list->removeNodeAtHead();
+			destroyFood();
 			break;
 		case Food::FoodType::MANGO:
+			single_link_list->nodeRemoveAtMiddle();
+			destroyFood();
 			break;
 		case Food::FoodType::ORANGE:
+			single_link_list->removeAtTail();
+			destroyFood();
 			break;
 		case Food::FoodType::PIZZA:
+			single_link_list->attachNewTail();
+			destroyFood();
 			break;
 		case Food::FoodType::BURGER:
+			single_link_list->insertNodeAtHead();
+			destroyFood();
 			break;
 		case Food::FoodType::CHEESE:
+			single_link_list->nodeInsetAtMiddle();
+			destroyFood();
 			break;
 		case Food::FoodType::POISION:
+			single_link_list->removeHalfNode();
+			destroyFood();
 			break;
 		case Food::FoodType::ALCOHOL:
-			break;
-		default:
+			current_snake_direction = single_link_list->reverse();
+			destroyFood();
 			break;
 		}
+	}
+
+	void SnakeController::destroyFood()
+	{
+		ServiceLocator::getInstance()->getFoodService()->destroyFood();
 	}
 
 }

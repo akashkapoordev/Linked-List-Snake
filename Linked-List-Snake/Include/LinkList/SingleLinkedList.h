@@ -29,18 +29,8 @@ namespace LinkList
 		std::vector<sf::Vector2i> getNodePositionList();
 
 		Node* getHeadNode();
-
-
-
-	private:
-		Node* head_node;
-		float node_width;
-		float node_height;
-		Node* createNode();
-		sf::Vector2i default_position;
-		Player::Direction default_direction; 
-		sf::Vector2i getNewNodePosition(Node* ref_node,Operations operation);
-		void initializeNewNode(Node* new_node, Node* ref_node,Operations operation);
+		sf::Vector2i getNewNodePosition(Node* ref_node, Operations operation);
+		void initializeNewNode(Node* new_node, Node* ref_node, Operations operation);
 		void insertNodeAtHead();
 		void insertNodeAtIndex(int index);
 		void shiftNodesAfterInsertion(Node* new_node, Node* current_node, Node* previous_node);
@@ -56,6 +46,16 @@ namespace LinkList
 		Direction  getReversedDirection(Direction reference_direction);
 		void reverseNodeDirection();
 		Direction reverse();
+
+
+	private:
+		Node* head_node;
+		float node_width;
+		float node_height;
+		Node* createNode();
+		sf::Vector2i default_position;
+		Player::Direction default_direction; 
+
 
 
 	};

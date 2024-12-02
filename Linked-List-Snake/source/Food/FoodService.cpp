@@ -5,6 +5,13 @@
 #include <iostream>
 namespace Food
 {
+#include <SFML/System/Vector2.hpp>
+
+	// Add this function to print sf::Vector2i
+	std::ostream& operator<<(std::ostream& os, const sf::Vector2i& vector) {
+		os << "(" << vector.x << ", " << vector.y << ")";
+		return os;
+	}
 
 	using namespace Level;
 	// Existing code...
@@ -133,5 +140,6 @@ namespace Food
 	void FoodService::destroyFood()
 	{
 		if (current_food) delete(current_food);
+		current_food = nullptr;
 	}
 }

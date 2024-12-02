@@ -108,7 +108,7 @@ namespace LinkList
 
 			previous_node->next = new_node;
             new_node->next = current_node;
-            initializeNewNode(new_node, previous_node, Operations::MID);
+            initializeNewNode(new_node, previous_node, Operations::TAIL);
             link_list_size++;
 
 			shiftNodesAfterInsertion(new_node, current_node, previous_node);
@@ -232,7 +232,6 @@ namespace LinkList
 	{
 		if (head_node == nullptr)return;
 
-		link_list_size--;
 		Node* current_node = head_node;
 		if (current_node->next == nullptr)
 		{
@@ -240,31 +239,33 @@ namespace LinkList
 			return;
 		}
 
-		if (current_node->next->next != nullptr)
+		while (current_node->next->next != nullptr)
 		{
 			current_node = current_node->next;
 
 		}
 
 		delete(current_node->next);
+		link_list_size--;
 		current_node->next = nullptr;
 
 	}
 
 	Node* SingleLinkedList::findNodeAtIndex(int index)
 	{
-		if (index <0 || index > link_list_size)return;
+		//if (index <0 || index > link_list_size)return;
 
 		int current_index = 0;
 		Node* current_node = head_node;
-		while (current_node != nullptr && current_index > index)
+		Node* previous_node = nullptr;
+		while (current_node != nullptr && current_index <= index)
 		{
-	
+			previous_node = current_node;
 			current_node = current_node->next;
 			current_index++;
 		}
 
-		return current_node;
+		return previous_node;
 	}
 
 	void SingleLinkedList::removeHalfNode()
@@ -414,11 +415,12 @@ namespace LinkList
 
 	void SingleLinkedList::removeNodeAtHead()
 	{
-		link_list_size--;
 		Node* current_node = head_node;
 		head_node = head_node->next;
 		current_node->next = nullptr;
 		delete(current_node);
+		link_list_size--;
+
 	}
 
 	void SingleLinkedList::removeAllNodes()

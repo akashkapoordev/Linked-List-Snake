@@ -63,6 +63,7 @@ namespace Player
 		void elementCollision();
 		void foodCollision();
 		void onFoodCollected(Food::FoodType food_type);
+		void destroyFood();
 		
 
 	};

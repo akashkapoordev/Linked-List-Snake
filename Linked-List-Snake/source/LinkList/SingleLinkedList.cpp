@@ -286,6 +286,57 @@ namespace LinkList
 
 	}
 
+	Direction SingleLinkedList::getReversedDirection(Direction reference_direction)
+	{
+		switch (reference_direction)
+		{
+		case Player::Direction::RIGHT:
+			return Direction::LEFT;
+		case Player::Direction::UP:
+			return Direction::DOWN;
+		case Player::Direction::DOWN:
+			return Direction::UP;
+		case Player::Direction::LEFT:
+			return Direction::RIGHT;
+		}
+	}
+
+	void SingleLinkedList::reverseNodeDirection()
+	{
+		Node* current_node = head_node;
+
+		while (current_node != nullptr)
+		{
+			Direction previous_direction = current_node->body_part.getPreviousDirection();
+			Direction reverse_direction = getReversedDirection(previous_direction);
+			current_node->body_part.setDirection(reverse_direction);
+			current_node = current_node->next;
+		}
+	}
+
+	Direction SingleLinkedList::reverse()
+	{
+		Node* current_node = head_node;
+		Node* next_node = nullptr;
+		Node* previous_node = nullptr;
+
+		while (current_node!=nullptr)
+		{
+			next_node = current_node->next;
+			current_node->next = previous_node;
+
+			previous_node = current_node;
+			current_node = next_node;
+			
+
+		}
+
+		head_node = previous_node;
+
+		reverseNodeDirection();
+		return head_node->body_part.getDirection();
+	}
+
 
 
 	void SingleLinkedList::attachNewTail()

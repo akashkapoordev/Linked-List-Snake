@@ -53,7 +53,10 @@ namespace LinkList
 		void removeAtTail();
 		Node* findNodeAtIndex(int index);
 		void removeHalfNode();
-		
+		Direction  getReversedDirection(Direction reference_direction);
+		void reverseNodeDirection();
+		Direction reverse();
+
 
 	};
 

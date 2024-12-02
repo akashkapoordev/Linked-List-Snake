@@ -47,6 +47,7 @@ namespace Player
 	}
 	void BodyPart::setDirection(Direction dir)
 	{
+		previous_direction = direction;
 		direction = dir;
 	}
 	void BodyPart::createBodyPartImage()
@@ -137,6 +138,11 @@ namespace Player
 	{
 		grid_position = pos;
 	}
+	Direction BodyPart::getPreviousDirection()
+	{
+		return previous_direction;
+	}
+
 	Direction BodyPart::getDirection()
 	{
 		return direction;

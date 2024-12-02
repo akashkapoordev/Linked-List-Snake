@@ -17,10 +17,12 @@ namespace Player
 		sf::Vector2i getNextPosition();
 		sf::Vector2i getPreviousPosition();
 		void setPosition(sf::Vector2i pos);
-
-
 		Direction getDirection();
 		sf::Vector2i getgridPosition();
+		Direction previous_direction;
+
+		Direction getPreviousDirection();
+
 	private:
 		UI::UIElement::ImageView* body_part_image;
 		Direction direction;

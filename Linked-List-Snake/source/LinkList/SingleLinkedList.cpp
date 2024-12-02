@@ -228,6 +228,28 @@ namespace LinkList
 
 	}
 
+	void SingleLinkedList::removeAtTail()
+	{
+		if (head_node == nullptr)return;
+
+		link_list_size--;
+		Node* current_node = head_node;
+		if (current_node->next == nullptr)
+		{
+			removeNodeAtHead();
+			return;
+		}
+
+		if (current_node->next->next != nullptr)
+		{
+			current_node = current_node->next;
+		}
+
+		delete(current_node->next);
+		current_node->next = nullptr;
+
+	}
+
 
 
 	void SingleLinkedList::attachNewTail()

@@ -52,6 +52,11 @@ namespace Level
 		return levelController->cellHeight();
 	}
 
+	LevelNumber LevelService::getCurrentLevel()
+	{
+		return current_level;
+	}
+
 	void LevelService::spwanLevelElements(LevelNumber level_number)
 	{
 		float cell_width = levelController->cellWidth();

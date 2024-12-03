@@ -37,6 +37,21 @@ namespace Player
 		return snake_controller->getCurrentSnakePositionList();
 	}
 
+	int PlayerService::getPlayerScore()
+	{
+		return snake_controller->getPlayerScore();
+	}
+
+	TimeComplexity PlayerService::getTimeComplexity()
+	{
+		return snake_controller->getTimeComplexity();
+	}
+
+	LinkListOperations PlayerService::getLinkListOperation()
+	{
+		return snake_controller->getLinkListOperations();
+	}
+
 	void PlayerService::createController()
 	{
 		snake_controller = new SnakeController();

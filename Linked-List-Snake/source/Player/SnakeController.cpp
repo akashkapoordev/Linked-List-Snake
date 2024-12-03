@@ -74,6 +74,26 @@ namespace Player
 		return single_link_list->getNodePositionList();
 	}
 
+	int SnakeController::getPlayerScore()
+	{
+		return player_score;
+	}
+
+	void SnakeController::setPlayerScore(int score)
+	{
+		player_score = score;
+	}
+
+	TimeComplexity SnakeController::getTimeComplexity()
+	{
+		return time_complexity;
+	}
+
+	LinkListOperations SnakeController::getLinkListOperations()
+	{
+		return link_list_operation;
+	}
+
 	void SnakeController::processPlayerInput()
 	{
 		if (input_state == InputState::PROCESSING)
@@ -116,6 +136,7 @@ namespace Player
 	}
 	void SnakeController::processCollosionDetection()
 	{
+		
 		bodyCollision();
 		elementCollision();
 		foodCollision();
@@ -135,6 +156,7 @@ namespace Player
 		current_snake_direction = default_snake_direction;
 		elscaped_time = 0;
 		restart_timer = 0;
+		player_score = 0;
 		input_state = InputState::WAITING;
 		
 	}
@@ -184,6 +206,7 @@ namespace Player
 
 		if (food_service->processFoodCollision(single_link_list->getHeadNode(), food_type))
 		{
+			player_score++;
 			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::PICKUP);
 			onFoodCollected(food_type);
 
@@ -196,34 +219,50 @@ namespace Player
 		{
 		case Food::FoodType::APPLE:
 			single_link_list->removeNodeAtHead();
+			time_complexity = TimeComplexity::ONE;
+			link_list_operation = LinkListOperations::REMOVE_AT_HEAD;
 			destroyFood();
 			break;
 		case Food::FoodType::MANGO:
 			single_link_list->nodeRemoveAtMiddle();
+			time_complexity = TimeComplexity::N;
+			link_list_operation = LinkListOperations::REMOVE_AT_MID;
 			destroyFood();
 			break;
 		case Food::FoodType::ORANGE:
 			single_link_list->removeAtTail();
+			time_complexity = TimeComplexity::N;
+			link_list_operation = LinkListOperations::REMOVE_AT_TAIL;
 			destroyFood();
 			break;
 		case Food::FoodType::PIZZA:
 			single_link_list->attachNewTail();
+			time_complexity = TimeComplexity::N;
+			link_list_operation = LinkListOperations::INSERT_AT_TAIL;
 			destroyFood();
 			break;
 		case Food::FoodType::BURGER:
 			single_link_list->insertNodeAtHead();
+			time_complexity = TimeComplexity::ONE;
+			link_list_operation = LinkListOperations::INSERT_AT_HEAD;
 			destroyFood();
 			break;
 		case Food::FoodType::CHEESE:
 			single_link_list->nodeInsetAtMiddle();
+			time_complexity = TimeComplexity::N;
+			link_list_operation = LinkListOperations::INSERT_AT_MID;
 			destroyFood();
 			break;
 		case Food::FoodType::POISION:
 			single_link_list->removeHalfNode();
+			time_complexity = TimeComplexity::N;
+			link_list_operation = LinkListOperations::DELETE_HALF_LIST;
 			destroyFood();
 			break;
 		case Food::FoodType::ALCOHOL:
 			current_snake_direction = single_link_list->reverse();
+			time_complexity = TimeComplexity::N;
+			link_list_operation = LinkListOperations::REVERSE_LIST;
 			destroyFood();
 			break;
 		}

@@ -18,6 +18,26 @@ namespace Player
 		WAITING
 	};
 
+	enum class TimeComplexity
+	{
+		NONE,
+		ONE,
+		N
+	};
+
+	enum class LinkListOperations
+	{
+		NONE,
+		INSERT_AT_HEAD,
+		INSERT_AT_TAIL,
+		INSERT_AT_MID,
+		REMOVE_AT_HEAD,
+		REMOVE_AT_TAIL,
+		REMOVE_AT_MID,
+		DELETE_HALF_LIST,
+		REVERSE_LIST,
+	};
+
 	class  SnakeController
 	{
 	public:
@@ -37,6 +57,11 @@ namespace Player
 		void setSnakeState(SnakeState state);
 
 		std::vector<sf::Vector2i> getCurrentSnakePositionList();
+		int getPlayerScore();
+		void setPlayerScore(int score);
+
+		TimeComplexity getTimeComplexity();
+		LinkListOperations getLinkListOperations();
 
 	private:
 		const float movement_frame_duration = 0.1f;
@@ -64,6 +89,10 @@ namespace Player
 		void foodCollision();
 		void onFoodCollected(Food::FoodType food_type);
 		void destroyFood();
+
+		int player_score;
+		TimeComplexity time_complexity;
+		LinkListOperations link_list_operation;
 		
 
 	};

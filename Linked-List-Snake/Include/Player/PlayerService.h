@@ -14,6 +14,9 @@ namespace Player
 
 		void spwanPlayer();
 		std::vector<sf::Vector2i> getCurrentSnakePositionList();
+		int getPlayerScore();
+		TimeComplexity getTimeComplexity();
+		LinkListOperations getLinkListOperation();
 
 	private:
 		SnakeController* snake_controller;

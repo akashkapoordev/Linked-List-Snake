@@ -200,6 +200,20 @@ namespace LinkListLib
 
 		void DoubleLinkList::removeHalfNodes()
 		{
+			int index = (link_list_size / 2) - 1;
+
+			Node* previous_node = findNodeAtIndex(index);
+			Node* current_node = previous_node->next;
+
+			while (current_node != nullptr)
+			{
+				Node* node_to_delete = current_node;
+				current_node = current_node->next;
+				delete(node_to_delete);
+				link_list_size--;
+			}
+
+			previous_node->next = nullptr;
 		}
 
 		Direction DoubleLinkList::reverse()

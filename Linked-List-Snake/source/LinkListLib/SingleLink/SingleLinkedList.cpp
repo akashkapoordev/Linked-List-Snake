@@ -16,16 +16,6 @@ namespace LinkListLib
 			return new SingleLinkList::SingleNode;
 		}
 
-		void SingleLinkedList::initializeNewNode(Node* new_node, Node* ref_node, Operation operation)
-		{
-			if (ref_node == nullptr)
-			{
-				new_node->body_part.initialize(node_width, node_height, default_direction, default_position);
-				return;
-			}
-			new_node->body_part.initialize(node_width, node_height, ref_node->body_part.getDirection(), getNewNodePosition(ref_node, operation));
-		}
-
 		void SingleLinkedList::insertNodeAtHead()
 		{
 			link_list_size++;

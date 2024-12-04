@@ -10,6 +10,29 @@ namespace LinkListLib
 
 		void DoubleLinkList::insertNodeAtTail()
 		{
+			link_list_size++;
+			Node* new_node = createNode();
+			Node* current_node = head_node;
+
+			if (current_node == nullptr)
+			{
+				static_cast<DoubleNode*>(new_node)->previous = nullptr;
+				initializeNode(new_node, nullptr, Operation::TAIL);
+				return;
+
+			}
+
+			while (current_node->next != nullptr)
+			{
+				current_node = current_node->next;
+			}
+
+			current_node->next = new_node;
+			static_cast<DoubleNode*>(new_node)->previous = current_node;
+			initializeNode(new_node, current_node, Operation::TAIL);
+			
+
+
 		}
 
 		void DoubleLinkList::insertNodeAtHead()
@@ -17,7 +40,7 @@ namespace LinkListLib
 			link_list_size++;
 			Node* current_node = createNode();
 
-			if (head_node == nullptr)
+			while (head_node == nullptr)
 			{
 				head_node = current_node;
 				static_cast<DoubleNode*>(current_node)->previous = nullptr;

@@ -1,4 +1,5 @@
 #include "LinkListLib/DoubleLinked/DoubleLinkList.h"
+#include "Player/Direction.h"
 
 namespace LinkListLib
 {
@@ -56,6 +57,13 @@ namespace LinkListLib
 
 		void DoubleLinkList::insertNodeAtMiddle()
 		{
+			if (head_node == nullptr)
+			{
+				insertNodeAtHead();
+				return;
+			}
+			int current_index = findMiddleNode();
+			insertNodeAtIndex(current_index);
 		}
 
 		void DoubleLinkList::insertNodeAtIndex(int index)
@@ -134,10 +142,50 @@ namespace LinkListLib
 
 		void DoubleLinkList::removeNodeAtMiddle()
 		{
+			if (head_node == nullptr)return;
+
+			int current_index = findMiddleNode();
+
+			removeNodeAt(current_index);
 		}
 
 		void DoubleLinkList::removeNodeAt(int index)
 		{
+			if (index<0 || index>link_list_size)return;
+
+			if (index == 0)
+			{
+				removeNodeAtHead();
+				return;
+			}
+			link_list_size--;
+			int current_index = 0;
+			Node* previous_node = nullptr;
+			Node* current_node = head_node;
+
+			while (current_node != nullptr && current_index < index)
+			{
+				previous_node = current_node;
+				current_node = current_node->next;
+				current_index++;
+			}
+
+			if (previous_node != nullptr)
+			{
+				previous_node->next = current_node->next;
+
+			}
+
+			if (current_node->next != nullptr)
+			{
+				Node* next_node = current_node->next;
+				static_cast<DoubleNode*>(next_node->next)->previous = previous_node;
+
+			}
+			shiftNodesAfterRemoval(current_node);
+			delete(current_node);
+			
+
 		}
 
 		void DoubleLinkList::removeAllNodes()
@@ -179,6 +227,28 @@ namespace LinkListLib
 			}
 			initializeNode(current_node, previous_node, Operation::TAIL);
 
+		}
+
+		void DoubleLinkList::shiftNodesAfterRemoval(Node* current_node)
+		{
+			Direction previous_direction = current_node->body_part.getDirection();
+			sf::Vector2i previous_position = current_node->body_part.getgridPosition();
+
+			current_node = current_node->next;
+
+			while (current_node != nullptr)
+			{
+				Direction current_direction = current_node->body_part.getDirection(); 
+				sf::Vector2i current_position = current_node->body_part.getgridPosition();
+
+				current_node->body_part.setDirection(previous_direction);
+				current_node->body_part.setPosition(previous_position);
+
+				current_node = current_node->next;
+
+				previous_direction = current_direction;
+				previous_position = current_position;
+			}
 		}
 
 		Node* DoubleLinkList::createNode()

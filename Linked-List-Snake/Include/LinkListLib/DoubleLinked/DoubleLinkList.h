@@ -28,6 +28,7 @@ namespace LinkListLib
 			 void updateNodeDirection(Direction direction_to_set) override;
 
 			 void shiftNodesAfterInsertion(Node* new_node, Node* current_node, Node* previous_node);
+			 void shiftNodesAfterRemoval(Node* current_node);
 
 
 

@@ -133,7 +133,7 @@ namespace LinkListLib
 			if (head_node != nullptr)
 			{
 				static_cast<DoubleNode*>(head_node)->previous = nullptr;
-
+	
 			}
 
 			current_node->next = nullptr;
@@ -190,6 +190,12 @@ namespace LinkListLib
 
 		void DoubleLinkList::removeAllNodes()
 		{
+			if (head_node == nullptr)return;
+
+			while (head_node != nullptr)
+			{
+				removeNodeAtHead();
+			}
 		}
 
 		void DoubleLinkList::removeHalfNodes()

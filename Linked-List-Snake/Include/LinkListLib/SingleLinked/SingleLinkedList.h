@@ -12,7 +12,6 @@ namespace LinkListLib
 			SingleLinkedList();
 			~SingleLinkedList();
 
-			void initializeNewNode(Node* new_node, Node* ref_node, Operation operation);
 
 			void insertNodeAtTail() override;
 			void insertNodeAtHead() override;

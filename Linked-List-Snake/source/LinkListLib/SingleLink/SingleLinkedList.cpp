@@ -11,6 +11,7 @@ namespace LinkListLib
 
 
 
+
 		Node* SingleLinkedList::createNode()
 		{
 			return new SingleLinkList::SingleNode;
@@ -24,11 +25,11 @@ namespace LinkListLib
 			if (head_node == nullptr)
 			{
 				head_node = new_node;
-				initializeNewNode(new_node, nullptr, Operation::HEAD);
+				initializeNode(new_node, nullptr, Operation::HEAD);
 				return;
 			}
 
-			initializeNewNode(new_node, head_node, Operation::HEAD);
+			initializeNode(new_node, head_node, Operation::HEAD);
 			new_node->next = head_node;
 			head_node = new_node;
 		}
@@ -57,7 +58,7 @@ namespace LinkListLib
 
 			previous_node->next = new_node;
 			new_node->next = current_node;
-			initializeNewNode(new_node, previous_node, Operation::TAIL);
+			initializeNode(new_node, previous_node, Operation::TAIL);
 			link_list_size++;
 
 			shiftNodesAfterInsertion(new_node, current_node, previous_node);
@@ -79,7 +80,7 @@ namespace LinkListLib
 				next_node = next_node->next;
 			}
 
-			initializeNewNode(current_node, previous_node, Operation::TAIL);
+			initializeNode(current_node, previous_node, Operation::TAIL);
 		}
 
 
@@ -246,7 +247,7 @@ namespace LinkListLib
 			if (current_node == nullptr)
 			{
 				head_node = new_node;
-				initializeNewNode(new_node, nullptr, Operation::TAIL);
+				initializeNode(new_node, nullptr, Operation::TAIL);
 				return;
 			}
 
@@ -256,7 +257,7 @@ namespace LinkListLib
 			}
 
 			current_node->next = new_node;
-			initializeNewNode(new_node, current_node, Operation::TAIL);
+			initializeNode(new_node, current_node, Operation::TAIL);
 
 
 		}

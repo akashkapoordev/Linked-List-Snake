@@ -8,7 +8,7 @@
 namespace Player
 {
 	using namespace Global;
-	using namespace LinkList;
+	using namespace LinkListLib::SingleList;
 	using namespace Event;
 	using namespace Sound;
 	using namespace Food;
@@ -51,7 +51,7 @@ namespace Player
 	{
 		for (int i = 0; i <= snake_length; i++)
 		{
-			single_link_list->attachNewTail();
+			single_link_list->insertNodeAtTail();
 		}
 	}
 	void SnakeController::respwanSnake()
@@ -224,19 +224,19 @@ namespace Player
 			destroyFood();
 			break;
 		case Food::FoodType::MANGO:
-			single_link_list->nodeRemoveAtMiddle();
+			single_link_list->removeNodeAtMiddle();
 			time_complexity = TimeComplexity::N;
 			link_list_operation = LinkListOperations::REMOVE_AT_MID;
 			destroyFood();
 			break;
 		case Food::FoodType::ORANGE:
-			single_link_list->removeAtTail();
+			single_link_list->removeNodeAtTail();
 			time_complexity = TimeComplexity::N;
 			link_list_operation = LinkListOperations::REMOVE_AT_TAIL;
 			destroyFood();
 			break;
 		case Food::FoodType::PIZZA:
-			single_link_list->attachNewTail();
+			single_link_list->insertNodeAtTail();
 			time_complexity = TimeComplexity::N;
 			link_list_operation = LinkListOperations::INSERT_AT_TAIL;
 			destroyFood();
@@ -248,13 +248,13 @@ namespace Player
 			destroyFood();
 			break;
 		case Food::FoodType::CHEESE:
-			single_link_list->nodeInsetAtMiddle();
+			single_link_list->insertNodeAtMiddle();
 			time_complexity = TimeComplexity::N;
 			link_list_operation = LinkListOperations::INSERT_AT_MID;
 			destroyFood();
 			break;
 		case Food::FoodType::POISION:
-			single_link_list->removeHalfNode();
+			single_link_list->removeHalfNodes();
 			time_complexity = TimeComplexity::N;
 			link_list_operation = LinkListOperations::DELETE_HALF_LIST;
 			destroyFood();

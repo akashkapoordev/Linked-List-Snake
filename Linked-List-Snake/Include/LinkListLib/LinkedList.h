@@ -49,8 +49,9 @@ namespace LinkListLib
 		sf::Vector2i default_position;
 		Direction default_direction;
 		int link_list_size;
+		Node* findNodeAtIndex(int index);
 
-		virtual void createNode() = 0;
+		virtual Node* createNode() = 0;
 		sf::Vector2i getNewNodePosition(Node* refernce_node, Operation operation);
 		Direction getReverseDirection(Direction reference_direction);
 		Node* findNodeAtIndex(int index);

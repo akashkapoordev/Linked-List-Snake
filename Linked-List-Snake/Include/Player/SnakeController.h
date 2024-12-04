@@ -1,7 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Player/Direction.h"
-#include "LinkList/SingleLinkedList.h"
+#include "LinkListLib/SingleLinked/SingleLinkedList.h"
 #include "Food/Food.h"
 
 namespace Player
@@ -80,7 +80,7 @@ namespace Player
 		void handleRestart();
 		void reset();
 		void delayUpdate();
-		LinkList::SingleLinkedList* single_link_list;
+		LinkListLib::SingleList::SingleLinkedList* single_link_list;
 		void createSingleLinkList();
 		InputState input_state;
 

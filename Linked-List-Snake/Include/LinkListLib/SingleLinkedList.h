@@ -1,7 +1,7 @@
 #pragma once
-#include "LinkList/Node.h"
+#include "LinkListLib/Node.h"
 #include "Player/Direction.h" 
-namespace LinkList
+namespace LinkListLib
 {
 	enum class Operations
 	{

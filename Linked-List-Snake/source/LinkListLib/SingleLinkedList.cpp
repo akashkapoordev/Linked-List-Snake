@@ -1,7 +1,7 @@
-#include "LinkList/SingleLinkedList.h"
+#include "LinkListLib/SingleLinkedList.h"
 #include <iostream>
 
-namespace LinkList
+namespace LinkListLib
 {
 
 	SingleLinkedList::SingleLinkedList()

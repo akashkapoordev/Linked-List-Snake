@@ -3,7 +3,7 @@
 
 namespace LinkListLib
 {
-	namespace SingleList
+	namespace SingleLinkList
 	{
 		SingleLinkedList::SingleLinkedList() = default;
 	

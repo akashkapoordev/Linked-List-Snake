@@ -1,8 +1,9 @@
 #pragma once
 #include "LinkListLib/LinkedList.h"
+#include "LinkListLib/DoubleLinked/DoubleNode.h"
 namespace LinkListLib
 {
-	namespace DoubleList
+	namespace DoubleLinkList
 	{
 		class DoubleLinkList:public LinkList
 		{

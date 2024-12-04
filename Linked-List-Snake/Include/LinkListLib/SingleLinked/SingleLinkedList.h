@@ -4,7 +4,7 @@
 #include "LinkListLib/LinkedList.h"
 namespace LinkListLib
 {
-	namespace SingleList
+	namespace SingleLinkList
 	{
 		class SingleLinkedList :public LinkList
 		{

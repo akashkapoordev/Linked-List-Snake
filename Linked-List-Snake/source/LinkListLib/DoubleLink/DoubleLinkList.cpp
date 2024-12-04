@@ -2,7 +2,7 @@
 
 namespace LinkListLib
 {
-	namespace DoubleList
+	namespace DoubleLinkList
 	{
 
 		DoubleLinkList::DoubleLinkList() = default;
@@ -14,6 +14,21 @@ namespace LinkListLib
 
 		void DoubleLinkList::insertNodeAtHead()
 		{
+			link_list_size++;
+			Node* current_node = createNode();
+
+			if (head_node == nullptr)
+			{
+				head_node = current_node;
+				static_cast<DoubleNode*>(current_node)->previous = nullptr;
+				initializeNode(current_node, nullptr, Operation::HEAD);
+				return;
+			}
+
+			initializeNode(current_node, head_node, Operation::HEAD);
+			current_node->next = head_node;
+			static_cast<DoubleNode*>(head_node)->previous = current_node;
+			head_node = current_node;
 		}
 
 		void DoubleLinkList::insertNodeAtMiddle()
@@ -63,7 +78,7 @@ namespace LinkListLib
 
 		Node* DoubleLinkList::createNode()
 		{
-			return nullptr;
+			return new DoubleNode;
 		}
 
 

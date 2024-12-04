@@ -8,7 +8,7 @@
 namespace Player
 {
 	using namespace Global;
-	using namespace LinkListLib::SingleList;
+	using namespace LinkListLib::SingleLinkList;
 	using namespace Event;
 	using namespace Sound;
 	using namespace Food;

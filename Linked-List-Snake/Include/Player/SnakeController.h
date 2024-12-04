@@ -80,7 +80,7 @@ namespace Player
 		void handleRestart();
 		void reset();
 		void delayUpdate();
-		LinkListLib::SingleList::SingleLinkedList* single_link_list;
+		LinkListLib::SingleLinkList::SingleLinkedList* single_link_list;
 		void createSingleLinkList();
 		InputState input_state;
 

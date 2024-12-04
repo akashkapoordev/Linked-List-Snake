@@ -71,7 +71,7 @@ namespace Food
 	{
 		elapsed_timer = 0;
 	}
-	bool FoodService::processFoodCollision(LinkList::Node* head_node, FoodType& out_foodtype)
+	bool FoodService::processFoodCollision(LinkListLib::Node* head_node, FoodType& out_foodtype)
 	{
 		if (current_food && current_food->getFoodGridPosition() == head_node->body_part.getgridPosition() )
 		{

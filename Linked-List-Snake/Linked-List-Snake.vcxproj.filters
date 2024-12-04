@@ -96,7 +96,7 @@
     <ClCompile Include="source\Player\BodyPart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\LinkList\SingleLinkedList.cpp">
+    <ClCompile Include="source\LinkListLib\SingleLink\SingleLinkedList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Element\Obstacle.cpp">
@@ -112,6 +112,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\UI\GamePlay\GamePlayUIController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\LinkListLib\LinkedList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\LinkListLib\DoubleLink\DoubleLinkList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -206,10 +212,10 @@
     <ClInclude Include="Include\Player\BodyPart.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\LinkList\Node.h">
+    <ClInclude Include="Include\LinkListLib\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\LinkList\SingleLinkedList.h">
+    <ClInclude Include="Include\LinkListLib\SingleLinked\SingleLinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\Element\ElementData.h">
@@ -231,6 +237,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\UI\GamePlay\GamePlayUIController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\LinkListLib\SingleLinked\SingleNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\LinkListLib\DoubleLinked\DoubleNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\LinkListLib\LinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\LinkListLib\DoubleLinked\DoubleLinkList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

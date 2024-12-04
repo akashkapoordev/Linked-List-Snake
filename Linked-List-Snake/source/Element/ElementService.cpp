@@ -2,7 +2,7 @@
 
 namespace Element
 {
-	using namespace LinkList;
+	using namespace LinkListLib;
 	ElementService::ElementService() = default;
 	ElementService::~ElementService() = default;
 
@@ -51,7 +51,7 @@ namespace Element
 
 		return element_position;
 	}
-	bool ElementService::processElementCollision(LinkList::Node* head_node)
+	bool ElementService::processElementCollision(LinkListLib::Node* head_node)
 	{
 		for (int i = 0; i < obstacle_list.size(); i++)
 		{

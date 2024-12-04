@@ -1,5 +1,5 @@
 #pragma once
-#include "LinkListLib/Node.h"
+#include "LinkListLib/SingleLinked/SingleNode.h"
 #include "Player/Direction.h" 
 #include "LinkListLib/LinkedList.h"
 namespace LinkListLib
@@ -34,7 +34,7 @@ namespace LinkListLib
 
 			Direction reverse() override;
 
-			void reverseNodeDirection();
+			//void reverseNodeDirection();
 
 
 		protected:

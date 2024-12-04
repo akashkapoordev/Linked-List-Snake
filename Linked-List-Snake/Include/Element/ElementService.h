@@ -2,7 +2,7 @@
 #include "Element/Obstacle.h"
 #include "Element/ElementData.h"
 #include <vector>
-#include "LinkList/Node.h"
+#include "LinkListLib/Node.h"
 namespace Element
 {
 	class  ElementService
@@ -19,7 +19,7 @@ namespace Element
 		void spwanObstacle(sf::Vector2i position, float width, float height);
 		const void spwanElements(std::vector<ElementData>& element_data_list, float width, float height);
 		std::vector<sf::Vector2i> getElementPosition();
-		bool processElementCollision(LinkList::Node* head_node);
+		bool processElementCollision(LinkListLib::Node* head_node);
 
 	private:
 		std::vector<Obstacle*> obstacle_list;

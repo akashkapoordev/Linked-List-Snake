@@ -71,7 +71,7 @@ namespace Player
 
 	std::vector<sf::Vector2i> SnakeController::getCurrentSnakePositionList()
 	{
-		return single_link_list->getNodePositionList();
+		return single_link_list->nodePositionList();
 	}
 
 	int SnakeController::getPlayerScore()
@@ -192,7 +192,7 @@ namespace Player
 	void SnakeController::elementCollision()
 	{
 		Element::ElementService* element_service = ServiceLocator::getInstance()->getElementService();
-		if (element_service->processElementCollision(single_link_list->getHeadNode()))
+		if (element_service->processElementCollision(single_link_list->getNodeHead()))
 		{
 			setSnakeState(SnakeState::DEAD);
 			ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::DEATH);
@@ -204,7 +204,7 @@ namespace Player
 		Food::FoodService* food_service = ServiceLocator::getInstance()->getFoodService();
 		FoodType food_type;
 
-		if (food_service->processFoodCollision(single_link_list->getHeadNode(), food_type))
+		if (food_service->processFoodCollision(single_link_list->getNodeHead(), food_type))
 		{
 			player_score++;
 			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::PICKUP);

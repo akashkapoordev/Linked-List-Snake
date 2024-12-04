@@ -137,7 +137,9 @@
     <ClCompile Include="source\Element\Obstacle.cpp" />
     <ClCompile Include="source\Food\FoodItem.cpp" />
     <ClCompile Include="source\Food\FoodService.cpp" />
-    <ClCompile Include="source\LinkList\SingleLinkedList.cpp" />
+    <ClCompile Include="source\LinkListLib\DoubleLink\DoubleLinkList.cpp" />
+    <ClCompile Include="source\LinkListLib\LinkedList.cpp" />
+    <ClCompile Include="source\LinkListLib\SingleLink\SingleLinkedList.cpp" />
     <ClCompile Include="source\Player\BodyPart.cpp" />
     <ClCompile Include="source\Player\SnakeController.cpp" />
     <ClCompile Include="source\Player\PlayerService.cpp" />
@@ -180,8 +182,12 @@
     <ClInclude Include="Include\Level\LevelNumber.h" />
     <ClInclude Include="Include\Level\LevelService.h" />
     <ClInclude Include="Include\Level\LevelView.h" />
-    <ClInclude Include="Include\LinkList\Node.h" />
-    <ClInclude Include="Include\LinkList\SingleLinkedList.h" />
+    <ClInclude Include="Include\LinkListLib\DoubleLinked\DoubleLinkList.h" />
+    <ClInclude Include="Include\LinkListLib\DoubleLinked\DoubleNode.h" />
+    <ClInclude Include="Include\LinkListLib\LinkedList.h" />
+    <ClInclude Include="Include\LinkListLib\Node.h" />
+    <ClInclude Include="Include\LinkListLib\SingleLinked\SingleLinkedList.h" />
+    <ClInclude Include="Include\LinkListLib\SingleLinked\SingleNode.h" />
     <ClInclude Include="Include\Player\PlayerService.h" />
     <ClInclude Include="Include\Player\SnakeController.h" />
     <ClInclude Include="Include\Time\TimeService.h" />

@@ -1,6 +1,6 @@
 #pragma once
 #include "Food/FoodItem.h"
-#include "LinkList/Node.h"
+#include "LinkListLib/Node.h"
 #include <random>
 namespace Food
 {
@@ -26,7 +26,7 @@ namespace Food
 		sf::Vector2i getVaildSpawnPosition();
 		void reset();
 
-		bool processFoodCollision(LinkList::Node* head_node, FoodType& out_foodtype);
+		bool processFoodCollision(LinkListLib::Node* head_node, FoodType& out_foodtype);
 		void destroyFood();
 
 	private:

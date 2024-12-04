@@ -19,7 +19,7 @@ namespace LinkListLib
 		void render();
 
 		virtual void insertNodeAtTail() = 0;
-		virtual void insertNodeAtHead() = 0;
+		virtual void insertNodeAtHead() = 0;	
 		virtual void insertNodeAtMiddle() = 0;
 		virtual void insertNodeAtIndex(int index) = 0;
 
@@ -49,7 +49,6 @@ namespace LinkListLib
 		sf::Vector2i default_position;
 		Direction default_direction;
 		int link_list_size;
-		Node* findNodeAtIndex(int index);
 
 		virtual Node* createNode() = 0;
 		sf::Vector2i getNewNodePosition(Node* refernce_node, Operation operation);

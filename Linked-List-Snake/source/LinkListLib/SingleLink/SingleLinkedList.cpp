@@ -11,10 +11,9 @@ namespace LinkListLib
 
 
 
-
 		Node* SingleLinkedList::createNode()
 		{
-			return new Node();
+			return new SingleLinkList::SingleNode;
 		}
 
 		void SingleLinkedList::initializeNewNode(Node* new_node, Node* ref_node, Operation operation)
@@ -95,16 +94,16 @@ namespace LinkListLib
 
 
 
-	/*	void SingleLinkedList::insertNodeAtMiddle()
+		void SingleLinkedList::insertNodeAtMiddle()
 		{
 			if (head_node == nullptr)
 			{
 				insertNodeAtHead();
 				return;
 			}
-			int middle_index = findMiddleIndex();
+			int middle_index = findMiddleNode();
 			insertNodeAtIndex(middle_index);
-		}*/
+		}
 
 		void SingleLinkedList::shiftNodesAfterRemoval(Node* current_node)
 		{
@@ -163,15 +162,15 @@ namespace LinkListLib
 			}
 		}
 
-	/*	void SingleLinkedList::removeNodeAtMiddle()
+		void SingleLinkedList::removeNodeAtMiddle()
 		{
 			if (head_node == nullptr) return;
 
-			int middle_index = findMiddleIndex();
+			int middle_index = findMiddleNode();
 
 			removeAtIndex(middle_index);
 
-		}*/
+		}
 
 		void SingleLinkedList::removeNodeAtTail()
 		{
@@ -196,7 +195,6 @@ namespace LinkListLib
 
 		}
 
-
 		void SingleLinkedList::removeHalfNodes()
 		{
 			int index = (link_list_size / 2) - 1;
@@ -216,19 +214,9 @@ namespace LinkListLib
 
 		}
 
+	
 
-		//void SingleLinkedList::reverseNodeDirection()
-		//{
-		//	Node* current_node = head_node;
-
-		//	while (current_node != nullptr)
-		//	{
-		//		Direction previous_direction = current_node->body_part.getPreviousDirection();
-		//		Direction reverse_direction = getReversedDirection(previous_direction);
-		//		current_node->body_part.setDirection(reverse_direction);
-		//		current_node = current_node->next;
-		//	}
-		//}
+	
 
 		Direction SingleLinkedList::reverse()
 		{
@@ -252,6 +240,10 @@ namespace LinkListLib
 			reverseNodeDirection();
 			return head_node->body_part.getDirection();
 		}
+
+	/*	void SingleLinkedList::reverseNodeDirection()
+		{
+		}*/
 
 
 
@@ -279,6 +271,9 @@ namespace LinkListLib
 
 		}
 
+
+
+
 		void SingleLinkedList::removeNodeAtHead()
 		{
 			Node* current_node = head_node;
@@ -299,6 +294,9 @@ namespace LinkListLib
 			}
 
 		}
+
+
+	
 
 	}
 

@@ -54,6 +54,11 @@ namespace Player
 		return snake_controller->getLinkListOperations();
 	}
 
+	bool PlayerService::isPlayerDead()
+	{
+		return snake_controller->isSnakeDead();
+	}
+
 	void PlayerService::createController()
 	{
 		snake_controller = new SnakeController();

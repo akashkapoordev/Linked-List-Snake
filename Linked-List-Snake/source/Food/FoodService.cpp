@@ -123,6 +123,12 @@ namespace Food
 	}
 	void FoodService::handleFoodSpwaning()
 	{
+		if (ServiceLocator::getInstance()->getPlayerService()->isPlayerDead())
+		{
+			destroyFood();
+			return;
+		}
+
 		if (elapsed_timer >= spwan_timer)
 		{
 			destroyFood();

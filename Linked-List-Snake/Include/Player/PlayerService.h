@@ -18,7 +18,7 @@ namespace Player
 		int getPlayerScore();
 		TimeComplexity getTimeComplexity();
 		LinkListOperations getLinkListOperation();
-
+		bool isPlayerDead();
 	private:
 		SnakeController* snake_controller;
 		void createController();

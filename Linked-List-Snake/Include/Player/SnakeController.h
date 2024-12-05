@@ -65,7 +65,7 @@ namespace Player
 		LinkListOperations getLinkListOperations();
 
 		void createLinkList(Level::LinkListType link_list_type);
-
+		bool isSnakeDead();
 
 	private:
 		const float movement_frame_duration = 0.1f;

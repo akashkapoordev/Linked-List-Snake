@@ -191,6 +191,15 @@ namespace Player
 		}
 		initializeLinkList();
 	}
+
+	bool SnakeController::isSnakeDead()
+	{
+		if (getSnakeState() == SnakeState::DEAD)
+		{
+			return true;
+		}
+		return false;
+	}
 	
 	void SnakeController::bodyCollision()
 	{

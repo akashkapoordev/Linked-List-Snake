@@ -6,6 +6,7 @@
 #include "UI/Interface/IUIController.h"
 #include "UI/LevelSelection/LevelSelectionUIController .h"
 #include "UI/GamePlay/GamePlayUIController.h"
+#include "UI/LinkList/LinkListUIController.h"
 
 namespace UI
 {
@@ -18,6 +19,7 @@ namespace UI
 		Credits::CreditsScreenUIController* credits_screen_ui_controller;
 		LevelSelection::LevelSelectionUIController* level_selection_ui_controller;
 		GamePlay::GamePlayUIController* gameplay_ui_controller;
+		LinkListUI::ListLinkUIController* link_list_ui_controller;
 
 
 		void createControllers();

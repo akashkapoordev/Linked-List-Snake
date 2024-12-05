@@ -153,6 +153,7 @@
     <ClCompile Include="source\Time\TimeService.cpp" />
     <ClCompile Include="source\UI\Credits\CreditsScreenUIController.cpp" />
     <ClCompile Include="source\UI\Instructions\InstructionsScreenUIController.cpp" />
+    <ClCompile Include="source\UI\LinkList\LinkListUIController.cpp" />
     <ClCompile Include="source\UI\UIElement\AnimatedImageView.cpp" />
     <ClCompile Include="source\UI\UIElement\ButtonView.cpp" />
     <ClCompile Include="source\Global\Config.cpp" />
@@ -195,6 +196,7 @@
     <ClInclude Include="Include\UI\GamePlay\GamePlayUIController.h" />
     <ClInclude Include="Include\UI\Instructions\InstructionsScreenUIController.h" />
     <ClInclude Include="Include\UI\LevelSelection\LevelSelectionUIController .h" />
+    <ClInclude Include="Include\UI\LinkList\LinkListUIController.h" />
     <ClInclude Include="Include\UI\UIElement\AnimatedImageView.h" />
     <ClInclude Include="Include\UI\UIElement\ButtonView.h" />
     <ClInclude Include="Include\Global\Config.h" />

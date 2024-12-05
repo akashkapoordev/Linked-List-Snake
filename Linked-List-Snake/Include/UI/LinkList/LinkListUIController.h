@@ -41,6 +41,11 @@ namespace UI
 			void initializeButtons();
 			void destroy();
 
+			void registerCallBack();
+			void singleListCallBack();
+			void doubleListCallBack();
+			void mainMenuCallback();
+
 		};
 
 	}

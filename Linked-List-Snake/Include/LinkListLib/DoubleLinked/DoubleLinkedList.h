@@ -5,11 +5,11 @@ namespace LinkListLib
 {
 	namespace DoubleLinkList
 	{
-		class DoubleLinkList:public LinkList
+		class DoubleLinkedList:public LinkList
 		{
 		public:
-			DoubleLinkList();
-			~DoubleLinkList();
+			DoubleLinkedList();
+			~DoubleLinkedList();
 
 			void insertNodeAtTail() override;
 			void insertNodeAtHead() override;

@@ -12,10 +12,11 @@ namespace Level
 		void update();
 		void render();
 
-		void createLevel(LevelNumber number);
+		void createLevel(LinkListType level_type);
 		float cellWidth();
 		float cellHeigth();
 		LevelNumber getCurrentLevel();
+		void setLevelNumber(LevelNumber number);
 
 	private:
 		LevelController* levelController;

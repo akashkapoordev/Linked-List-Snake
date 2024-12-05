@@ -117,7 +117,7 @@
     <ClCompile Include="source\LinkListLib\LinkedList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\LinkListLib\DoubleLink\DoubleLinkList.cpp">
+    <ClCompile Include="source\LinkListLib\DoubleLink\DoubleLinkedList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\UI\LinkList\LinkListUIController.cpp">
@@ -251,7 +251,7 @@
     <ClInclude Include="Include\LinkListLib\LinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\LinkListLib\DoubleLinked\DoubleLinkList.h">
+    <ClInclude Include="Include\LinkListLib\DoubleLinked\DoubleLinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\UI\LinkList\LinkListUIController.h">

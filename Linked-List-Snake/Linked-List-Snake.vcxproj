@@ -137,7 +137,7 @@
     <ClCompile Include="source\Element\Obstacle.cpp" />
     <ClCompile Include="source\Food\FoodItem.cpp" />
     <ClCompile Include="source\Food\FoodService.cpp" />
-    <ClCompile Include="source\LinkListLib\DoubleLink\DoubleLinkList.cpp" />
+    <ClCompile Include="source\LinkListLib\DoubleLink\DoubleLinkedList.cpp" />
     <ClCompile Include="source\LinkListLib\LinkedList.cpp" />
     <ClCompile Include="source\LinkListLib\SingleLink\SingleLinkedList.cpp" />
     <ClCompile Include="source\Player\BodyPart.cpp" />
@@ -183,7 +183,7 @@
     <ClInclude Include="Include\Level\LevelConfig.h" />
     <ClInclude Include="Include\Level\LevelService.h" />
     <ClInclude Include="Include\Level\LevelView.h" />
-    <ClInclude Include="Include\LinkListLib\DoubleLinked\DoubleLinkList.h" />
+    <ClInclude Include="Include\LinkListLib\DoubleLinked\DoubleLinkedList.h" />
     <ClInclude Include="Include\LinkListLib\DoubleLinked\DoubleNode.h" />
     <ClInclude Include="Include\LinkListLib\LinkedList.h" />
     <ClInclude Include="Include\LinkListLib\Node.h" />

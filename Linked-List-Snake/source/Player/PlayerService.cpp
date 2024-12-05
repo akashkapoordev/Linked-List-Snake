@@ -3,6 +3,7 @@
 
 namespace Player
 {
+	using namespace Level;
 	PlayerService::PlayerService()
 	{
 		createController();
@@ -27,8 +28,9 @@ namespace Player
 		snake_controller->render();
 	}
 
-	void PlayerService::spwanPlayer()
+	void PlayerService::spwanPlayer(LinkListType level_type)
 	{
+		snake_controller->createLinkList(level_type);
 		snake_controller->spwanSnake();
 	}
 

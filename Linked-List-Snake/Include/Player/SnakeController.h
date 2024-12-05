@@ -1,8 +1,9 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Player/Direction.h"
-#include "LinkListLib/SingleLinked/SingleLinkedList.h"
+#include "LinkListLib/LinkedList.h"
 #include "Food/Food.h"
+#include "Level/LevelConfig.h"
 
 namespace Player
 {
@@ -63,6 +64,9 @@ namespace Player
 		TimeComplexity getTimeComplexity();
 		LinkListOperations getLinkListOperations();
 
+		void createLinkList(Level::LinkListType link_list_type);
+
+
 	private:
 		const float movement_frame_duration = 0.1f;
 		float elscaped_time;
@@ -80,8 +84,6 @@ namespace Player
 		void handleRestart();
 		void reset();
 		void delayUpdate();
-		LinkListLib::SingleLinkList::SingleLinkedList* single_link_list;
-		void createSingleLinkList();
 		InputState input_state;
 
 		void bodyCollision();
@@ -93,7 +95,9 @@ namespace Player
 		int player_score;
 		TimeComplexity time_complexity;
 		LinkListOperations link_list_operation;
-		
+		LinkListLib::LinkList* linked_list;
+
+		void initializeLinkList();
 
 	};
 

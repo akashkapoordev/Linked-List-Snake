@@ -33,13 +33,13 @@ namespace Level
 	{
 		levelController->render();
 	}
-	void LevelService::createLevel(LevelNumber number)
+	void LevelService::createLevel(LinkListType level_type)
 	{
-		current_level = number;
+	
 		//levelController->createLevel(number);
-		spwanLevelElements(number);
+		spwanLevelElements(current_level);
 		spwanFood();
-		ServiceLocator::getInstance()->getPlayerService()->spwanPlayer();
+		ServiceLocator::getInstance()->getPlayerService()->spwanPlayer(level_type);
 	
 	}
 	float LevelService::cellWidth()
@@ -55,6 +55,11 @@ namespace Level
 	LevelNumber LevelService::getCurrentLevel()
 	{
 		return current_level;
+	}
+
+	void LevelService::setLevelNumber(LevelNumber number)
+	{
+		current_level = number;
 	}
 
 	void LevelService::spwanLevelElements(LevelNumber level_number)

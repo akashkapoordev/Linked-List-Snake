@@ -1,4 +1,4 @@
-#include "LinkListLib/DoubleLinked/DoubleLinkList.h"
+#include "LinkListLib/DoubleLinked/DoubleLinkedList.h"
 #include "Player/Direction.h"
 
 namespace LinkListLib
@@ -6,17 +6,18 @@ namespace LinkListLib
 	namespace DoubleLinkList
 	{
 
-		DoubleLinkList::DoubleLinkList() = default;
-		DoubleLinkList::~DoubleLinkList() = default;
+		DoubleLinkedList::DoubleLinkedList() = default;
+		DoubleLinkedList::~DoubleLinkedList() = default;
 
-		void DoubleLinkList::insertNodeAtTail()
+		void DoubleLinkedList::insertNodeAtTail()
 		{
 			link_list_size++;
 			Node* new_node = createNode();
 			Node* current_node = head_node;
 
-			if (current_node == nullptr)
+			if (head_node == nullptr)
 			{
+				head_node = new_node;
 				static_cast<DoubleNode*>(new_node)->previous = nullptr;
 				initializeNode(new_node, nullptr, Operation::TAIL);
 				return;
@@ -36,7 +37,7 @@ namespace LinkListLib
 
 		}
 
-		void DoubleLinkList::insertNodeAtHead()
+		void DoubleLinkedList::insertNodeAtHead()
 		{
 			link_list_size++;
 			Node* current_node = createNode();
@@ -55,7 +56,7 @@ namespace LinkListLib
 			head_node = current_node;
 		}
 
-		void DoubleLinkList::insertNodeAtMiddle()
+		void DoubleLinkedList::insertNodeAtMiddle()
 		{
 			if (head_node == nullptr)
 			{
@@ -66,7 +67,7 @@ namespace LinkListLib
 			insertNodeAtIndex(current_index);
 		}
 
-		void DoubleLinkList::insertNodeAtIndex(int index)
+		void DoubleLinkedList::insertNodeAtIndex(int index)
 		{
 			if (index <0 || index>link_list_size)return ;
 
@@ -101,7 +102,7 @@ namespace LinkListLib
 			
 		}
 
-		void DoubleLinkList::removeNodeAtTail()
+		void DoubleLinkedList::removeNodeAtTail()
 		{
 			if (head_node == nullptr)return;
 			link_list_size--;
@@ -124,7 +125,7 @@ namespace LinkListLib
 			delete(current_node);
 		}
 
-		void DoubleLinkList::removeNodeAtHead()
+		void DoubleLinkedList::removeNodeAtHead()
 		{
 			link_list_size--;
 			Node* current_node = head_node;
@@ -140,7 +141,7 @@ namespace LinkListLib
 			delete(current_node);
 		}
 
-		void DoubleLinkList::removeNodeAtMiddle()
+		void DoubleLinkedList::removeNodeAtMiddle()
 		{
 			if (head_node == nullptr)return;
 
@@ -149,7 +150,7 @@ namespace LinkListLib
 			removeNodeAt(current_index);
 		}
 
-		void DoubleLinkList::removeNodeAt(int index)
+		void DoubleLinkedList::removeNodeAt(int index)
 		{
 			if (index<0 || index>link_list_size)return;
 
@@ -188,7 +189,7 @@ namespace LinkListLib
 
 		}
 
-		void DoubleLinkList::removeAllNodes()
+		void DoubleLinkedList::removeAllNodes()
 		{
 			if (head_node == nullptr)return;
 
@@ -198,7 +199,7 @@ namespace LinkListLib
 			}
 		}
 
-		void DoubleLinkList::removeHalfNodes()
+		void DoubleLinkedList::removeHalfNodes()
 		{
 			int index = (link_list_size / 2) - 1;
 
@@ -216,7 +217,7 @@ namespace LinkListLib
 			previous_node->next = nullptr;
 		}
 
-		Direction DoubleLinkList::reverse()
+		Direction DoubleLinkedList::reverse()
 		{
 			Node* current_node = head_node;
 			Node* next_node = nullptr;
@@ -230,7 +231,7 @@ namespace LinkListLib
 				static_cast<DoubleNode*>(current_node)->previous = next_node;
 
 				previous_node = current_node;
-				current_node = next_node->next;
+				current_node = next_node;
 
 
 			}
@@ -241,7 +242,7 @@ namespace LinkListLib
 
 		}
 
-		void DoubleLinkList::shiftNodesAfterInsertion(Node* new_node, Node* current_node, Node* previous_node)
+		void DoubleLinkedList::shiftNodesAfterInsertion(Node* new_node, Node* current_node, Node* previous_node)
 		{
 			Node* next_node = current_node;
 			current_node = new_node;
@@ -261,7 +262,7 @@ namespace LinkListLib
 
 		}
 
-		void DoubleLinkList::shiftNodesAfterRemoval(Node* current_node)
+		void DoubleLinkedList::shiftNodesAfterRemoval(Node* current_node)
 		{
 			Direction previous_direction = current_node->body_part.getDirection();
 			sf::Vector2i previous_position = current_node->body_part.getgridPosition();
@@ -283,7 +284,7 @@ namespace LinkListLib
 			}
 		}
 
-		Node* DoubleLinkList::createNode()
+		Node* DoubleLinkedList::createNode()
 		{
 			return new DoubleNode;
 		}

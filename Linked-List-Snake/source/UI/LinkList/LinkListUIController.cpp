@@ -1,13 +1,17 @@
 #include "UI/LinkList/LinkListUIController.h"
 #include "Global/ServiceLocator.h"
 #include "Global/Config.h"
+#include "Main/GameService.h"
+#include "Level/LevelConfig.h"
 
 namespace UI
 {
 	namespace LinkListUI
 	{
+		using namespace Main;
 		using namespace UI::UIElement;
 		using namespace Global;
+		using namespace Level;
 
 		ListLinkUIController::ListLinkUIController()
 		{
@@ -22,6 +26,7 @@ namespace UI
 		{
 			initializeBackgroundImage();
 			initializeButtons();
+			registerCallBack();
 		}
 		void ListLinkUIController::update()
 		{
@@ -76,6 +81,30 @@ namespace UI
 			delete(single_link_list_button);
 			delete(double_link_list_button);
 			delete(main_menu_button);
+		}
+		void ListLinkUIController::registerCallBack()
+		{
+			single_link_list_button->registerCallbackFuntion(std::bind(&ListLinkUIController::singleListCallBack, this));
+			double_link_list_button->registerCallbackFuntion(std::bind(&ListLinkUIController::doubleListCallBack, this));
+			main_menu_button->registerCallbackFuntion(std::bind(&ListLinkUIController::mainMenuCallback, this));
+		}
+		void ListLinkUIController::singleListCallBack()
+		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::BUTTON_CLICK);
+			GameService::setGameState(GameState::GAMEPLAY);
+			ServiceLocator::getInstance()->getLevelService()->createLevel(LinkListType::SINGLE_LINK_LIST);
+			
+		}
+		void ListLinkUIController::doubleListCallBack()
+		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::BUTTON_CLICK);
+			GameService::setGameState(GameState::GAMEPLAY);
+			ServiceLocator::getInstance()->getLevelService()->createLevel(LinkListType::DOUBLE_LINK_LIST);
+		}
+		void ListLinkUIController::mainMenuCallback()
+		{
+			ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::BUTTON_CLICK);
+			GameService::setGameState(GameState::MAIN_MENU);
 		}
 	}
 }

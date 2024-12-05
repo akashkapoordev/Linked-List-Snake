@@ -232,10 +232,6 @@ namespace LinkListLib
 			return head_node->body_part.getDirection();
 		}
 
-	/*	void SingleLinkedList::reverseNodeDirection()
-		{
-		}*/
-
 
 
 		void SingleLinkedList::insertNodeAtTail()

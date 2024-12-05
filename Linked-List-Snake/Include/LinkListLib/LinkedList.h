@@ -31,8 +31,8 @@ namespace LinkListLib
 		virtual void removeHalfNodes() = 0;
 
 		virtual Direction reverse() = 0;
-		virtual void updateNodePosition();
-		virtual void updateNodeDirection(Direction direction_to_set);
+		void updateNodePosition();
+		void updateNodeDirection(Direction direction_to_set);
 
 
 		Node* getNodeHead();

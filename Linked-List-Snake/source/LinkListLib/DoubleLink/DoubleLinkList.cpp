@@ -218,15 +218,27 @@ namespace LinkListLib
 
 		Direction DoubleLinkList::reverse()
 		{
-			return Direction();
-		}
+			Node* current_node = head_node;
+			Node* next_node = nullptr;
+			Node* previous_node = nullptr;
 
-		void DoubleLinkList::updateNodePosition()
-		{
-		}
 
-		void DoubleLinkList::updateNodeDirection(Direction direction_to_set)
-		{
+			while (current_node != nullptr)
+			{
+				next_node = current_node->next;
+				current_node->next = previous_node;
+				static_cast<DoubleNode*>(current_node)->previous = next_node;
+
+				previous_node = current_node;
+				current_node = next_node->next;
+
+
+			}
+
+			head_node = previous_node;
+			reverseNodeDirection();
+			return head_node->body_part.getDirection();
+
 		}
 
 		void DoubleLinkList::shiftNodesAfterInsertion(Node* new_node, Node* current_node, Node* previous_node)

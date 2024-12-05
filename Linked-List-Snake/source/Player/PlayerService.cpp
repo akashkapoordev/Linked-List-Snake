@@ -1,0 +1,67 @@
+#include "Player/PlayerService.h"
+
+
+namespace Player
+{
+	using namespace Level;
+	PlayerService::PlayerService()
+	{
+		createController();
+	}
+	PlayerService::~PlayerService()
+	{
+		delete(snake_controller);
+	}
+
+	void PlayerService::initialize()
+	{
+		snake_controller->initialize();
+	}
+
+	void PlayerService::update()
+	{
+		snake_controller->update();
+	}
+
+	void PlayerService::render()
+	{
+		snake_controller->render();
+	}
+
+	void PlayerService::spwanPlayer(LinkListType level_type)
+	{
+		snake_controller->createLinkList(level_type);
+		snake_controller->spwanSnake();
+	}
+
+	std::vector<sf::Vector2i> PlayerService::getCurrentSnakePositionList()
+	{
+		return snake_controller->getCurrentSnakePositionList();
+	}
+
+	int PlayerService::getPlayerScore()
+	{
+		return snake_controller->getPlayerScore();
+	}
+
+	TimeComplexity PlayerService::getTimeComplexity()
+	{
+		return snake_controller->getTimeComplexity();
+	}
+
+	LinkListOperations PlayerService::getLinkListOperation()
+	{
+		return snake_controller->getLinkListOperations();
+	}
+
+	bool PlayerService::isPlayerDead()
+	{
+		return snake_controller->isSnakeDead();
+	}
+
+	void PlayerService::createController()
+	{
+		snake_controller = new SnakeController();
+	}
+
+}

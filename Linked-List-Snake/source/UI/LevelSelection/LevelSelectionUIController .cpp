@@ -2,7 +2,7 @@
 #include "Global/ServiceLocator.h"
 #include "Global/Config.h"
 #include "Main/GameService.h"
-#include "Level/LevelNumber.h"
+#include "Level/LevelConfig.h"
 
 
 namespace UI

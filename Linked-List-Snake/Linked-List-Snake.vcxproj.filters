@@ -182,7 +182,7 @@
     <ClInclude Include="Include\Level\LevelModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Include\Level\LevelNumber.h">
+    <ClInclude Include="Include\Level\LevelConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Include\Level\LevelService.h">
